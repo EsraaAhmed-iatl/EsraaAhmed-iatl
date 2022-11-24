@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_spare_part_form">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div class="oe_structure">
+                                <div class="row row-centered">
+                                    <div class="col-md-12 col-centered">
+                                        <group string="Spare Part Form">
+                                            <table class="table" style="direction: rtl;">
+                                                <tr/>
+                                                <tr/>
+                                                <tr/>
+                                                <tr/>
+                                                <tr class="text-center">
+                                                    <td colspan="12" style="border: none;">
+                                                        <h4>
+                                                            <u>
+                                                                <strong>طلب صرف قطع غيار</strong>
+                                                            </u>
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: none;">
+                                                        <strong>التاريخ:</strong>
+                                                    </td>
+                                                    <td style="border: none;" class="text-center">
+                                                        <span t-field="o.start_date"/>
+                                                    </td>
+                                                    <td style="border: none;">
+                                                        <strong>رقم امر التشغيل:</strong>
+                                                    </td>
+                                                    <td style="border: none;" class="text-center">
+                                                        <span t-field="o.job_no"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1 px solid black;" colspan="2">
+                                                        <strong>المهندس المسئول:</strong>
+                                                    </td>
+<!--                                                    <td style="border: 1 px solid black;" class="text-center"-->
+<!--                                                        colspan="2">-->
+<!--                                                        <span t-field="o.engineer_id"/>-->
+<!--                                                    </td>-->
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1 px solid black;" colspan="2">
+                                                        <strong>رقم الهيكل:</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" class="text-center"
+                                                        colspan="2">
+                                                        <span t-field="o.lot_id"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1 px solid black;" colspan="2">
+                                                        <strong>إسم الزبون:</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" class="text-center"
+                                                        colspan="2">
+                                                        <span t-field="o.customer_id"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1 px solid black;" class="text-center">
+                                                        <strong>م.</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" class="text-center">
+                                                        <strong>رقم قطعة الغيار</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" class="text-center">
+                                                        <strong>تفصيل</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" class="text-center">
+                                                        <strong>كم.</strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <t t-set="sr" t-value="1"/>
+                                                    <t t-foreach="o.spare_part_details_ids" t-as="m">
+                                                        <tr t-if="not m.delivered">
+                                                            <td style="border: 1 px solid black;">
+                                                                <span t-esc="sr"/>
+                                                                <t t-set="sr" t-value="sr + 1"/>
+                                                            </td>
+                                                            <td style="border: 1 px solid black;">
+                                                                <span t-field="m.spare_part_id.default_code"/>
+                                                            </td>
+                                                            <td style="border: 1 px solid black;">
+                                                                <span t-field="m.spare_part_id.name"/>
+                                                            </td>
+                                                            <td style="border: 1 px solid black;">
+                                                                <span t-field="m.qty"/>
+                                                            </td>
+                                                        </tr>
+                                                    </t>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: none;"></td>
+                                                    <td style="border: none;"></td>
+                                                    <td style="border: none;"></td>
+                                                    <td style="border: none;"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1 px solid black;">
+                                                        <strong>المخازن / تم صرف:</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" colspan="3"/>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1 px solid black;">
+                                                        <strong>رقم القيد:</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" colspan="3"/>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1 px solid black;">
+                                                        <strong>التوقيع:</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" colspan="3">
+                                                        <span></span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </group>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,158 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <!-- Inherit Search view of Sale Orders to add date search-->
+        <record id="inherited_view_sale_order_list_select" model="ir.ui.view">
+            <field name="name">inherited.view.sale.order.list.select</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+            <field name="arch" type="xml">
+                <!-- adding beneficiary -->
+                <field name="partner_id" position="after">
+                    <field name="beneficiary_id"/>
+                </field>
+                <!-- adding date from, to -->
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="date_from" filter_domain="[('date_order','&gt;=',self)]"/>
+                    <field name="date_to" filter_domain="[('date_order','&lt;=',self)]"/>
+                </xpath>
+                <!-- adding group by beneficiary -->
+            </field>
+        </record>
+        <!-- Inherit Form view of Sale Orders to add a number of fields -->
+        <record id="inherited_view_order_form" model="ir.ui.view">
+            <field name="name">inherited.view.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="state" position="after">
+                    <field name="finance_state" widget="statusbar"
+                           clickable="True"
+                           attrs="{'invisible':[('finance_tracker','=',False)]}"/>
+                </field>
+                <field name="partner_id" position="before">
+                    <field name="code_customer"/>
+                </field>
+    
+                <field name="partner_id" position="after">
+                    <field name="beneficiary_id"/>
+                    <field name="finance_tracker"/>
+                    <field name="is_com_header"/>
+                </field>
+                <field name="payment_term_id" position="after">
+                    <label for="vat_tax_id"/>
+                    <div class="o_row">
+                        <field name="vat_tax_id" class="o_light_label" widget="many2many_tags"/>
+                        <button name="generate_vat_tax" type="object" string=" Generate" class="btn btn-link pt-0"/>
+                    </div>
+                </field>
+            </field>
+        </record>
+        <!-- Inherit Form view of Lots to Change Lot to Serial No. -->
+        <record id="inherited_sale_order_lot_selection_view_order_tree_lot" model="ir.ui.view">
+            <field name="name">inherited.sale.order.lot.selection.view.order.tree.lot</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_order_lot_selection.view_order_tree_lot"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/tree/field[@name='lot_id']" position="attributes">
+                    <attribute name="string">Serial No.</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/form/group/group/field[@name='product_id']"
+                       position="attributes">
+                    <attribute name="string">Serial No.</attribute>
+                </xpath>
+            </field>
+        </record>
+        <!-- Sales Analysis pivot -->
+        <!-- Inherit graph view of Sale Order to  Add Product qty in Sales Analysis pivot As Default -->
+        <record id="inherited_view_order_product_graph" model="ir.ui.view">
+            <field name="name">inherited.view.order.product.graph</field>
+            <field name="model">sale.report</field>
+            <field name="inherit_id" ref="sale.view_order_product_graph"/>
+            <field name="arch" type="xml">
+                <!-- adding Product qty -->
+                <field name="price_subtotal" position="after">
+                    <field name="product_uom_qty" type="measure"/>
+                </field>
+            </field>
+        </record>
+
+
+
+
+        <record id="sale_order_inherit_form" model="ir.ui.view">
+            <field name="name">partner.inherit.form.emipro</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="groups_id" eval="[(4,ref('base.group_no_one'))]"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('o_td_label')]" position="replace">
+                    <div class="o_td_label"
+                         invisible="1"
+                         >
+                        <label for="date_order"
+                               string="Quotation Date"/>
+                    </div>
+                </xpath>
+                <!-- position values: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='date_order']" position="replace">
+                    <!-- Add your fields or attributes here -->
+                    <field name="date_order"
+                           invisible="1"
+                           nolabel="1"
+                          />
+                </xpath>
+
+
+            </field>
+        </record>
+
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_sale_order_form" model="ir.ui.view">
+            <field name="name">view.inherit.sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='date_order']" position="after">
+                    <!-- Add your fields or attributes here -->
+                    <field name="quotations_date"/>
+                </xpath>
+
+                <!-- position values: after|before|replace|attributes|inside -->
+                <!-- position values: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <!-- Add your fields or attributes here -->
+                    <xpath expr="//field[@name='client_order_ref']" position="move"/>
+                </xpath>
+
+
+
+            </field>
+        </record>
+
+        <record id="view_sale_order_inherit_tree_inherit" model="ir.ui.view">
+            <field name="name">view.sale.order.inherit.tree</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+            <field name="arch" type="xml">
+
+<!--                 position: after|before|replace|attributes|inside-->
+                <xpath expr="//field[@name='create_date']" position="replace">
+                    <!-- Add your fields or attributes here -->
+                    <field name="quotations_date"/>
+                </xpath>
+
+<!--                 <xpath expr="//field[@name='date_order']" position="after">-->
+<!--                &lt;!&ndash; Add your fields or attributes here &ndash;&gt;-->
+<!--                <field name="quotations_date"/>-->
+<!--            </xpath>-->
+
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

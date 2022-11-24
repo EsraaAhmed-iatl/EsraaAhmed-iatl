@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+   
+    <record id="view_wizard_location_movements" model="ir.ui.view">
+      <field name="name">wizard.detail.movements</field>
+      <field name="model">wizard.detail.movements</field>
+      <field name="arch" type="xml">
+        <form string=" Location" version="7.0">
+          
+			<group col="4">
+			    <field name="location_id" />
+                <field name="from_date" />
+                <field name="to_date" />
+             </group>
+            
+
+          <footer>
+            <button name = "print_report"  string="Print"  type="object" class="oe_highlight"/> or
+            <button string="Cancel" class="oe_link" special="cancel"/>
+          </footer>
+        </form>
+      </field>
+    </record>
+
+      <record model="ir.ui.view" id="view_detail_movements_excel">
+            <field name="name">view.detail.movements.report.excel</field>
+            <field name="model">detail.movements.report.excel</field>
+            <field name="arch" type="xml">
+                <form string="File to Downloads">
+                        <field name="name" invisible="1"/>
+                        <field name="file_download" filename="name"/>
+                </form>
+            </field>
+        </record>
+
+
+
+    <record id="action_view_wizard_location_movements" model="ir.actions.act_window">
+      <field name="name"> location moves </field>
+      <field name="res_model">wizard.detail.movements</field>
+
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="view_wizard_location_movements"/>
+      <field name="target">new</field>
+    </record>
+	
+<!--     <menuitem id="menu_stock_reports" name="Reporting" parent="stock.menu_stock_root"/>-->
+
+     <menuitem action="action_view_wizard_location_movements" name="Detail Movements XLS Report" id="menu_location_moves_report" parent="stock.menu_warehouse_report" sequence="300"/>
+
+
+  </data>
+</odoo>

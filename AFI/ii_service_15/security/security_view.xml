@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- group of spare part control -->
+        <record id="spare_part_deliver_group" model="res.groups">
+            <field name="name">Spare Part Control</field>
+            <field name="comment">Spare part control.</field>
+        </record>
+        <!-- group of discount control -->
+        <record id="allowed_discount_group" model="res.groups">
+            <field name="name">Allow Discount Control</field>
+            <field name="comment">Allow discount control.</field>
+        </record>
+    </data>
+</odoo>

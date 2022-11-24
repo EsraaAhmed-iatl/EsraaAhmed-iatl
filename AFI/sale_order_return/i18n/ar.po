@@ -1,0 +1,664 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_order_return
+# 	* order_return
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-03 06:23+0000\n"
+"PO-Revision-Date: 2021-06-03 06:23+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: order_return
+#: model_terms:ir.ui.view,arch_db:order_return.order_return_template
+msgid "<strong style=\"margin-left:10px;\">Date:</strong>"
+msgstr "التاريخ"
+
+#. module: order_return
+#: model_terms:ir.ui.view,arch_db:order_return.order_return_template
+msgid "<strong style=\"margin-left:10px;\">Order Number:</strong>"
+msgstr "رقم الطلب"
+
+#. module: order_return
+#: model_terms:ir.ui.view,arch_db:order_return.order_return_template
+msgid ""
+"<strong>Return Reason:</strong>\n"
+"                                <br/>"
+msgstr "<strong>سبب الإرجاع:</strong>\n"
+"                                <br/>"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: order_return
+#: model_terms:ir.ui.view,arch_db:order_return.view_order_return_form
+msgid "Approve"
+msgstr "أوافق"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields.selection,name:order_return.selection__order_return__state__cancel
+#: model_terms:ir.ui.view,arch_db:order_return.view_order_return_form
+#: model_terms:ir.ui.view,arch_db:order_return.view_order_return_picking_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking__move_dest_exists
+msgid "Chained Move Exists"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__company_id
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: order_return
+#: model:ir.model.fields.selection,name:order_return.selection__order_return__state__confirm
+#: model_terms:ir.ui.view,arch_db:order_return.view_order_return_form
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__create_uid
+#: model:ir.model.fields,field_description:order_return.field_order_return_line__create_uid
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking__create_uid
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking_line__create_uid
+#: model:ir.model.fields,field_description:order_return.field_return_reason__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__create_date
+#: model:ir.model.fields,field_description:order_return.field_order_return_line__create_date
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking__create_date
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking_line__create_date
+#: model:ir.model.fields,field_description:order_return.field_return_reason__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__currency_id
+#: model:ir.model.fields,field_description:order_return.field_order_return_line__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: sale_order_return
+#: model:ir.model.fields,field_description:sale_order_return.field_sale_order__delivery_done
+msgid "Delivery done"
+msgstr "الكمية المستلمة"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_line__name
+msgid "Description"
+msgstr "الوصف"
+
+#. modules: sale_order_return, order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking_line__display_name
+#: model:ir.model.fields,field_description:order_return.field_return_reason__display_name
+#: model:ir.model.fields,field_description:sale_order_return.field_order_return__display_name
+#: model:ir.model.fields,field_description:sale_order_return.field_order_return_line__display_name
+#: model:ir.model.fields,field_description:sale_order_return.field_order_return_picking__display_name
+#: model:ir.model.fields,field_description:sale_order_return.field_sale_order__display_name
+#: model:ir.model.fields,field_description:sale_order_return.field_sale_order_line__display_name
+#: model:ir.model.fields,field_description:sale_order_return.field_stock_picking__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: order_return
+#: model:ir.model.fields.selection,name:order_return.selection__order_return__state__done
+msgid "Done"
+msgstr "تم"
+
+#. module: order_return
+#: model:ir.model.fields.selection,name:order_return.selection__order_return__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__message_follower_ids
+msgid "Followers"
+msgstr "متابعين"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "متابعين"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "متابعين"
+
+#. module: order_return
+#: model:ir.model.fields,help:order_return.field_order_return__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. modules: sale_order_return, order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking_line__id
+#: model:ir.model.fields,field_description:order_return.field_return_reason__id
+#: model:ir.model.fields,field_description:sale_order_return.field_order_return__id
+#: model:ir.model.fields,field_description:sale_order_return.field_order_return_line__id
+#: model:ir.model.fields,field_description:sale_order_return.field_order_return_picking__id
+#: model:ir.model.fields,field_description:sale_order_return.field_sale_order__id
+#: model:ir.model.fields,field_description:sale_order_return.field_sale_order_line__id
+#: model:ir.model.fields,field_description:sale_order_return.field_stock_picking__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,help:order_return.field_order_return__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,help:order_return.field_order_return__message_needaction
+#: model:ir.model.fields,help:order_return.field_order_return__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,help:order_return.field_order_return__message_has_error
+#: model:ir.model.fields,help:order_return.field_order_return__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: sale_order_return
+#: model:ir.model.fields,field_description:sale_order_return.field_order_return_picking__is_sale
+msgid "Is Sale"
+msgstr ""
+
+#. modules: sale_order_return, order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking_line____last_update
+#: model:ir.model.fields,field_description:order_return.field_return_reason____last_update
+#: model:ir.model.fields,field_description:sale_order_return.field_order_return____last_update
+#: model:ir.model.fields,field_description:sale_order_return.field_order_return_line____last_update
+#: model:ir.model.fields,field_description:sale_order_return.field_order_return_picking____last_update
+#: model:ir.model.fields,field_description:sale_order_return.field_sale_order____last_update
+#: model:ir.model.fields,field_description:sale_order_return.field_sale_order_line____last_update
+#: model:ir.model.fields,field_description:sale_order_return.field_stock_picking____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__write_uid
+#: model:ir.model.fields,field_description:order_return.field_order_return_line__write_uid
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking__write_uid
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking_line__write_uid
+#: model:ir.model.fields,field_description:order_return.field_return_reason__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__write_date
+#: model:ir.model.fields,field_description:order_return.field_order_return_line__write_date
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking__write_date
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking_line__write_date
+#: model:ir.model.fields,field_description:order_return.field_return_reason__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_line__move_id
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking_line__move_id
+msgid "Move"
+msgstr "حركة"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking__product_return_moves
+msgid "Moves"
+msgstr "حركات"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_return_reason__name
+msgid "Name"
+msgstr "اسم"
+
+#. module: sale_order_return
+#: code:addons/sale_order_return/models/order_return.py:0
+#: code:addons/sale_order_return/models/order_return.py:0
+#, python-format
+msgid "New"
+msgstr "جديد"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: order_return
+#: code:addons/order_return/models/order_return.py:0
+#: code:addons/order_return/wizard/return_order_picking.py:0
+#, python-format
+msgid ""
+"No products to return (only lines in Done state and not fully returned yet "
+"can be returned)."
+msgstr ""
+"لا توجد منتجات لإرجاعها فقط البنود في حالة تم ولم يتم إرجاعها بالكامل بعد"
+"يمكن إرجاعها."
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,help:order_return.field_order_return__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,help:order_return.field_order_return__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,help:order_return.field_order_return__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. modules: sale_order_return, order_return
+#: model:ir.actions.act_window,name:sale_order_return.action_sale_order_return_view
+#: model:ir.model,name:sale_order_return.model_order_return
+#: model_terms:ir.ui.view,arch_db:order_return.view_order_return_form
+#: model_terms:ir.ui.view,arch_db:order_return.view_order_return_tree
+#: model_terms:ir.ui.view,arch_db:sale_order_return.view_inherit_sale_order_form
+msgid "Order Return"
+msgstr "طلب المردود"
+
+#. module: order_return
+#: model_terms:ir.ui.view,arch_db:order_return.order_return_template
+msgid "Order Return Form"
+msgstr "نموذج طلب المردود"
+
+#. modules: sale_order_return, order_return
+#: model:ir.model,name:sale_order_return.model_order_return_line
+#: model:ir.model.fields,field_description:order_return.field_order_return__return_line
+msgid "Order Return Line"
+msgstr "الاصناف المردودة"
+
+#. module: sale_order_return
+#: model:ir.model,name:sale_order_return.model_order_return_picking
+msgid "Order Return Picking"
+msgstr "شحنة المردود"
+
+#. module: order_return
+#: model:ir.model,name:order_return.model_order_return_picking_line
+msgid "Order Return Picking Line"
+msgstr "بنود شحنة طلب المردود"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking__original_location_id
+msgid "Original Location"
+msgstr "الموقع الرئيسي"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking__parent_location_id
+msgid "Parent Location"
+msgstr "الموقع الاساسي"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__partner_id
+#: model:ir.model.fields,field_description:order_return.field_order_return_line__partner_id
+msgid "Partner"
+msgstr "العميل"
+
+#. modules: sale_order_return, order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__picking_count
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking__picking_id
+#: model:ir.model.fields,field_description:sale_order_return.field_order_return_picking__sale_picking_id
+#: model:ir.model.fields,field_description:sale_order_return.field_sale_order__sale_count
+msgid "Picking"
+msgstr "شحنة"
+
+#. module: order_return
+#: code:addons/order_return/models/order_return.py:0
+#, python-format
+msgid "Please specify at least one non-zero quantity."
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_line__product_id
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking_line__product_id
+msgid "Product"
+msgstr "منتج"
+
+#. module: order_return
+#: model_terms:ir.ui.view,arch_db:order_return.order_return_template
+msgid "Product Name"
+msgstr "اسم المنتج"
+
+#. module: order_return
+#: model:ir.model.fields.selection,name:order_return.selection__order_return__return_type__purchase
+msgid "Purchase"
+msgstr "المشتريات"
+
+#. module: order_return
+#: model:ir.model,name:order_return.model_return_reason
+msgid "Purchase Return Reason"
+msgstr "أسباب مردود المشتريات"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking_line__quantity
+#: model_terms:ir.ui.view,arch_db:order_return.order_return_template
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking__reason_id
+msgid "Reason"
+msgstr "سبب الإرجاع"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__activity_user_id
+msgid "Responsible User"
+msgstr "الشخص المسؤول"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_stock_picking__return_id
+#: model_terms:ir.ui.view,arch_db:order_return.view_order_return_picking_form
+msgid "Return"
+msgstr "مردود"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__return_date
+#: model:ir.model.fields,field_description:order_return.field_order_return_line__return_date
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking__return_date
+msgid "Return Date"
+msgstr "تاريخ الإرجاع"
+
+#. module: order_return
+#: model_terms:ir.ui.view,arch_db:order_return.view_order_return_form
+msgid "Return Line"
+msgstr "بنود المردود"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__location_id
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking__location_id
+msgid "Return Location"
+msgstr "الموقع الرئيسي"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_line__return_id
+msgid "Return Order"
+msgstr "طلب المردود"
+
+#. modules: sale_order_return, order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__picking_id
+#: model:ir.model.fields,field_description:sale_order_return.field_order_return__sale_picking_id
+msgid "Return Picking"
+msgstr "الشحنة المردوده"
+
+#. modules: sale_order_return, order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_line__qty_return
+#: model:ir.model.fields,field_description:sale_order_return.field_sale_order_line__qty_return
+msgid "Return Qty"
+msgstr "كمية المردود"
+
+#. module: order_return
+#: model:ir.actions.act_window,name:order_return.action_return_reason_view
+#: model:ir.model.fields,field_description:order_return.field_order_return__reason_id
+#: model:ir.ui.menu,name:order_return.menu_return_reason_view
+#: model_terms:ir.ui.view,arch_db:order_return.view_return_reason_form
+msgid "Return Reason"
+msgstr "سبب الإرجاع"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__name
+msgid "Return Reference"
+msgstr "مرجع المردود"
+
+#. module: order_return
+#: model:ir.actions.report,name:order_return.order_return_template_report
+msgid "Return Report"
+msgstr "تقرير المردود"
+
+#. module: sale_order_return
+#: model_terms:ir.ui.view,arch_db:sale_order_return.view_inherit_sale_order_form
+msgid "Return Request"
+msgstr "طلب المردود"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__return_type
+msgid "Return Type"
+msgstr "نوع المردود"
+
+#. module: order_return
+#: code:addons/order_return/models/order_return.py:0
+#, python-format
+msgid "Return of %s"
+msgstr ""
+
+#. module: order_return
+#: code:addons/order_return/models/order_return.py:0
+#, python-format
+msgid "Returned Picking"
+msgstr "الشحنة المردودة"
+
+#. module: order_return
+#: model:ir.actions.act_window,name:order_return.action_order_return_picking
+msgid "Reverse Transfer"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. modules: sale_order_return, order_return
+#: model:ir.model.fields,field_description:sale_order_return.field_order_return__sale_id
+#: model:ir.model.fields.selection,name:order_return.selection__order_return__return_type__sale
+msgid "Sale"
+msgstr "فاتورة المبيعات"
+
+#. module: sale_order_return
+#: model:ir.ui.menu,name:sale_order_return.menu_sale_order_return_view
+msgid "Sale Return"
+msgstr "مردود المبيعات"
+
+#. module: sale_order_return
+#: model:ir.model,name:sale_order_return.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: sale_order_return
+#: model:ir.model,name:sale_order_return.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "الأصناف"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__origin
+msgid "Source Document"
+msgstr "مصدر وثائق"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__state
+#: model:ir.model.fields,field_description:order_return.field_order_return_line__state
+msgid "Status"
+msgstr "الحالات"
+
+#. module: order_return
+#: model:ir.model.fields,help:order_return.field_order_return__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_line__price_subtotal
+msgid "Subtotal"
+msgstr "الإجمالي الفرعي"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_line__tax_ids
+msgid "Taxes"
+msgstr "الضرائب"
+
+#. module: order_return
+#: model_terms:ir.ui.view,arch_db:order_return.view_order_return_picking_form
+msgid ""
+"This picking appears to be chained with another operation. Later, if you receive the goods\n"
+"                            you are returning now, make sure to <b>reverse</b> the returned picking in order to avoid\n"
+"                            logistic rules to be applied again (which would create duplicated operations)"
+msgstr ""
+
+#. module: sale_order_return
+#: model:ir.model,name:sale_order_return.model_stock_picking
+msgid "Transfer"
+msgstr "الشحنة"
+
+#. module: order_return
+#: model:ir.model.fields,help:order_return.field_order_return_line__to_refund
+#: model:ir.model.fields,help:order_return.field_order_return_picking_line__to_refund
+msgid ""
+"Trigger a decrease of the delivered/received quantity in the associated Sale"
+" Order/Purchase Order"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,help:order_return.field_order_return__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_line__price_unit
+msgid "Unit Price"
+msgstr "سعر الوحدة"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_line__product_uom
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking_line__uom_id
+msgid "Unit of Measure"
+msgstr "وحدة لبقياس"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_line__to_refund
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking_line__to_refund
+msgid "Update quantities on SO/PO"
+msgstr " تحديث الكمية علي المبيعات\المشتريات"
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,help:order_return.field_order_return__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: order_return
+#: model:ir.model.fields,field_description:order_return.field_order_return_picking_line__wizard_id
+msgid "Wizard"
+msgstr ""
+
+#. module: order_return
+#: code:addons/order_return/models/order_return.py:0
+#, python-format
+msgid ""
+"You have manually created product lines, please delete them to proceed."
+msgstr ""
+
+#. module: order_return
+#: code:addons/order_return/models/order_return.py:0
+#: code:addons/order_return/wizard/return_order_picking.py:0
+#, python-format
+msgid "You may only return Done pickings."
+msgstr "يمكنك فقط إرجاع الشحنة التم."
+
+#. module: order_return
+#: code:addons/order_return/wizard/return_order_picking.py:0
+#, python-format
+msgid "You may only return one picking at a time."
+msgstr "يمكنك فقط إرجاع شحنة واحده في الوقت ."
+
+#. module: sale_order_return
+#: model:ir.model.fields,field_description:sale_order_return.field_order_return_line__sale_order_id
+msgid "sale Order"
+msgstr "امر البيع"

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="0">
+		<!--<record id="hr_holidays.holiday_status_cl" model="hr.holidays.status">-->
+		<!--<function model="hr.holidays.status" name="change_name" />-->
+		<!--</record>-->
+		<record id="hr_holiday_haj1" model="hr.leave.type">
+			<field name="name">Haj</field>
+			<field name="color_name">red</field>
+			<field name="active">True</field>
+			<field name="double_validation">True</field>
+		</record>
+		<record id="hr_holidays.holiday_status_cl" model="hr.leave.type">
+			<field name="name">Legal Leave</field>
+		</record>
+
+	</data>
+</odoo>

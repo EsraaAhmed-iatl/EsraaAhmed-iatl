@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+
+    <!--    ************************************** Inherit End Service *************************-->
+    <!-- Inherit Form View to Modify it -->
+    <record id="view_inherit_finance_approval_form" model="ir.ui.view">
+        <field name="name">view.inherit.finance.approval.form</field>
+        <field name="model">finance.approval</field>
+        <field name="inherit_id" ref="is_accounting_approval_15.view_finance_approval_form"/>
+        <field name="arch" type="xml">
+
+            <!-- position: after|before|replace|attributes|inside -->
+            <xpath expr="//field[@name='requester']" position="after">
+                <!-- Add your fields or attributes here -->
+                <field name="end_service_id" invisible="1"/>
+            </xpath>
+
+        </field>
+    </record>
+
+
+
+    <!--    ************************************** Inherit End Service *************************-->
+
+    <record id="view_end_of_service_form" model="ir.ui.view">
+        <field name="name">view.end.of.service.form</field>
+        <field name="model">end.of.service</field>
+        <field name="arch" type="xml">
+            <form string="End Of Service">
+                <header>
+                    <button name="send_to_approve"
+                            string="Send To Approve"
+                            class="oe_highlight"
+                            states="draft"
+                            type="object"/>
+
+                    <button name="action_approve"
+                            string="Approve"
+                            class="oe_highlight"
+                            states="approve"
+                            type="object"/>
+
+                    <button name="action_reject"
+                            string="Reject"
+                            class="btn-danger"
+                            states="approve"
+                            type="object"/>
+
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,approve,done"/>
+
+                </header>
+                <sheet>
+                    
+                    <div class="oe_button_box" name="button_box">
+
+                        <button name="open_end_service"
+                                class="oe_stat_button"
+                                type="object"
+                                attrs="{'invisible': [('end_service_count','=', 0)]}"
+                                icon="fa-smile-o">
+                            <field name="end_service_count"
+                                   string="Finance Approval"
+                                   widget="statinfo"/>
+                        </button>
+
+                    </div>
+
+
+                    <group>
+                        <group>
+                            <field name="employee_id" attrs="{'readonly': [('state','=', 'done')]}"/>
+                            <field name="working_year"/>
+                            <field name="working_month"/>
+                            <field name="remaining_leaves"/>
+                            <field name="total_end_of_service_amount"/>
+                        </group>
+
+                        <group>
+                            <field name="date" attrs="{'readonly': [('state','=', 'done')]}"/>
+                            <field name="total_unpaid_loan_amount"/>
+                            <field name="amount_leave_balance"/>
+                            <field name="benefits"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_end_of_service_tree" model="ir.ui.view">
+        <field name="name">view.end.of.service.tree</field>
+        <field name="model">end.of.service</field>
+        <field name="arch" type="xml">
+            <tree string="End Of Service">
+                <field name="employee_id"/>
+                <field name="working_year"/>
+                <field name="total_end_of_service_amount"/>
+                <field name="remaining_leaves"/>
+                <field name="total_unpaid_loan_amount"/>
+                <field name="amount_leave_balance"/>
+                <field name="benefits"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_end_of_service_view" model="ir.actions.act_window">
+        <field name="name">End Of Service</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">end.of.service</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                End Service Form
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_emp_process_categ"
+              name="Employee Process"
+              parent="hr.menu_hr_root" sequence="21"/>
+
+    <menuitem id="menu_end_of_service_view"
+              name="End Of Service"
+               parent="menu_emp_process_categ"
+              action="action_end_of_service_view"/>
+
+
+
+</odoo>

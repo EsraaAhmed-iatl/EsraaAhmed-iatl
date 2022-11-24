@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <record id="view_buy_leave_form" model="ir.ui.view">
+        <field name="name">view.buy.leave.form</field>
+        <field name="model">buy.leave</field>
+        <field name="arch" type="xml">
+            <form string="buy.leave">
+                <header>
+                    <button name="action_sent_to_direct_manager"
+                            string="Sent To Direct Manager"
+                            class="oe_highlight"
+                            states="draft"
+                            type="object"/>
+
+                    <button name="action_direct_manager_approve"
+                            string="Approve"
+                            attrs="{'invisible': ['|',('department_approve', '=', False),
+                            ('state', '!=', 'direct_manager')]}"
+                            class="oe_highlight"
+                            type="object"/>
+
+                    <button name="action_create_finance_approve"
+                            string="Approve"
+                            class="oe_highlight"
+                            states="hr"
+                            type="object"/>
+
+
+                    <field name="state"
+                           widget="statusbar"
+                           statusbar_visible="draft,direct_manager,hr,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id"  attrs="{'readonly': [('state', '=', 'done')]}"/>
+                            <field name="wage"/>
+                            <field name="remaining_leaves"/>
+                            <field name="department_approve" invisible="1"/>
+                        </group>
+
+                        <group>
+                            <field name="date"  attrs="{'readonly': [('state', '=', 'done')]}"/>
+                            <field name="days"  attrs="{'readonly': [('state', '=', 'done')]}"/>
+                            <field name="amount"  attrs="{'readonly': [('state', '=', 'done')]}"/>
+                            <field name="manager_id"  attrs="{'readonly': [('state', '=', 'done')]}"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_buy_leave_tree" model="ir.ui.view">
+        <field name="name">view.buy_leave.tree</field>
+        <field name="model">buy.leave</field>
+        <field name="arch" type="xml">
+            <tree string="Buy Leave">
+                <field name="employee_id"/>
+                <field name="wage"/>
+                <field name="remaining_leaves"/>
+                <field name="date"/>
+                <field name="days"/>
+                <field name="amount"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_buy_leave_view" model="ir.actions.act_window">
+        <field name="name">Buy Leave</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">buy.leave</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Buy Leave Form
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem id="menu_buy_leave_view"
+              name="Buy Leave"
+              parent="ii_hr_afi_15.menu_emp_process_categ"
+              action="action_buy_leave_view"
+    />
+
+
+</odoo>

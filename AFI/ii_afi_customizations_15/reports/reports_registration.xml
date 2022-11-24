@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Register Recommendation Letter for Sale Order Report -->
+        <report id="report_salerecommend"
+                string="Recommendation Letter"
+                model="sale.order"
+                report_type="qweb-pdf"
+                file="ii_afi_customizations_15.report_saleorder_recommend"
+                name="ii_afi_customizations_15.report_saleorder_recommend"
+        />
+    </data>
+</odoo>

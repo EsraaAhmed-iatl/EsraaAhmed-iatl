@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Customers View: Adding Job Orders and engineer option-->
+        <record id="inherited_afi_view_partner_form" model="ir.ui.view">
+            <field name="name">inherited.afi.view.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <!-- Adding smart button for job orders-->
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button class="oe_inline oe_stat_button" type="action"
+                            context="{'default_customer_id' : active_id, 'search_default_customer_id' : active_id,}"
+                            name="%(ii_service_15.action_job)d" icon="fa-wrench">
+                        <field name="job_count" widget="statinfo"/>
+                    </button>
+                </xpath>
+                <xpath expr="//page[@name='sales_purchases']/group/group[@name='purchase'] " position="inside">
+                    <field name="engineer"/>
+                    <field name="technician"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

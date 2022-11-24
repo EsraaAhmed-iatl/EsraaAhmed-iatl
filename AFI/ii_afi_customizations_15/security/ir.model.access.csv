@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wizard_detail_movements,wizard.detail.movements,model_wizard_detail_movements,,1,1,1,1
+access_wizard_product_movements,wizard.product.movements,model_wizard_product_movements,,1,1,1,1
+access_sales_warehouse_customer,sales.warehouse.customer,model_sales_warehouse_customer,,1,1,1,1
+access_sales_warehouse_customer,sales.warehouse.customer,model_sales_warehouse_customer,,1,1,1,1
+access_sales_warehouse_summary,sales.warehouse.summary,model_sales_warehouse_summary,,1,1,1,1

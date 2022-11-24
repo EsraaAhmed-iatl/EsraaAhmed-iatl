@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_order_return,order_return.order_return,model_order_return,,1,1,1,1
+access_order_return_line,order_return.line,model_order_return_line,,1,1,1,1
+access_return_reason,return.reason,model_return_reason,,1,1,1,1
+access_order_return_picking,order.return.picking,model_order_return_picking,,1,1,1,1
+access_order_return_picking_line,order.return.picking.line,model_order_return_picking_line,,1,1,1,1

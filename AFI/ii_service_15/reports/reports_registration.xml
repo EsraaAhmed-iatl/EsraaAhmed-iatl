@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Register Spare Part Report-->
+        <report id="report_sparepart"
+                string="Spare Part Form"
+                model="job.order"
+                report_type="qweb-pdf"
+                file="ii_service_15.report_spare_part_form"
+                name="ii_service_15.report_spare_part_form"
+                menu="True"
+        />
+        <!-- Register Job Order Report -->
+        <report id="report_joborder"
+                string="Job Order Report"
+                model="job.order"
+                report_type="qweb-pdf"
+                file="ii_service_15.report_job_order"
+                name="ii_service_15.report_job_order"
+                menu="True"
+        />
+    </data>
+</odoo>

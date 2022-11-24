@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_incentive,sale_incentive,model_sale_incentive,sales_team.group_sale_manager,1,1,1,1
+access_sale_incentive_line,sale_incentive_line,model_sale_incentive_line,sales_team.group_sale_manager,1,1,1,1
+access_access_sale_incentive_salesman,sale_incentive,model_sale_incentive,sales_team.group_sale_salesman,1,1,1,1
+access_sale_incentive_line_salesman,sale_incentive_line,model_sale_incentive_line,sales_team.group_sale_salesman,1,1,1,1
+access_commission_payment_lines,commission.payment.lines,model_commission_payment_lines,sales_team.group_sale_salesman,1,1,1,1

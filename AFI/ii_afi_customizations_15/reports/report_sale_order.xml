@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--inherit from account_invoice_document (invoice) to remove header-->
+        <template id="inherited_report_invoice_document" inherit_id="sale.report_saleorder_document">
+
+<!--            <xpath expr="//t[@t-call='web.external_layout']" position='attributes'>-->
+<!--                <t t-if="o.is_com_header != True">-->
+<!--                    <attribute name="t-call">web.html_container</attribute>-->
+<!--                </t>-->
+<!--            </xpath>-->
+
+            <!-- position values: after|before|replace|attributes|inside -->
+            <xpath expr="//div[@class='row mt32 mb32']" position="inside">
+                <!-- Add your fields or attributes here -->
+                <div t-if="doc.beneficiary_id" class="col-auto col-3 mw-100 mb-2">
+                    <strong>Beneficiary:</strong>
+                    <p class="m-0" t-field="doc.beneficiary_id.name"/>
+                </div>
+            </xpath>
+
+
+
+
+              <xpath expr="//table[@class='table table-sm o_main_table']//thead//tr//th[@name='th_description']"
+                   position="before">
+                <!-- Add your fields or attributes here -->
+                <t t-set="count_no" t-value="1"/>
+                <th name="th_no" class="text-left">
+                    <span>NO</span>
+                </th>
+
+            </xpath>
+
+
+            <xpath expr="//tbody[@class='sale_tbody']//tr//td[1]" position="before">
+                <td class="text-left">
+                    <span t-esc="count_no"/>
+                     <t t-set="count_no" t-value="count_no + 1"/>
+                </td>
+            </xpath>
+            
+        </template>
+    </data>
+</odoo>

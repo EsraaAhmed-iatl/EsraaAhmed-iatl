@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="inherit_external_layout_header" inherit_id="web.external_layout_standard">
+            <!-- Replace header information -->
+            <xpath expr="//div[@t-attf-class='header o_company_#{company.id}_layout']" position='replace'>
+                <div class="header">
+                    <div class="row">
+                        <div class="col-xs-3" style="margin-top: -1%;margin-left:-19px">
+                            <img t-if="company.company_header"
+                                 t-att-src="'data:image/png;base64,%s' % to_text(company.company_header)"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+            <xpath expr="//div[@t-attf-class='footer o_standard_footer o_company_#{company.id}_layout']"
+                   position='replace'>
+                <div class="footer">
+                    <div class="row">
+                        <div class="col-xs-3" style="margin-left:-25px">
+                            <img t-if="company.company_footer"
+                                 t-att-src="'data:image/png;base64,%s' % to_text(company.company_footer)"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+        <template id="inherit_internal_layout_header" inherit_id="web.internal_layout">
+            <!-- Replace header information To Remove Company Header-->
+            <xpath expr="//div[@class='header']" position='replace'>
+                <div class="header">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                        </div>
+                        <div class="col-xs-2 col-xs-offset-2 text-center">
+                            <!--<span t-esc="company.name"/>-->
+                        </div>
+                        <div class="col-xs-2 col-xs-offset-3 text-right">
+                            <ul class="list-inline">
+                                <li>
+                                    <span class="page"/>
+                                </li>
+                                <li>/</li>
+                                <li>
+                                    <span class="topage"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

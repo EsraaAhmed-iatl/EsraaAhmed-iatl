@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="product_template_custom_view_form" model="ir.ui.view">
+      <field name="name">product.template.view.form.inherit</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_form_view"/>
+      <field name="arch" type="xml">
+        <field name="detailed_type" position="after">
+          <field name="MPN" widget="many2many_tags"/>
+          <field name="loc_case" />
+        </field>
+      </field>
+    </record>
+
+    <record id="product_template_only_custom_view_form" model="ir.ui.view">
+      <field name="name">product.template.view.form.inherit</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_only_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='default_code']" position="attributes">
+          <attribute name="string">Part No.</attribute>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="product_product_custom_view_form" model="ir.ui.view">
+      <field name="name">product.product.view.form.inherit</field>
+      <field name="model">product.product</field>
+      <field name="inherit_id" ref="product.product_normal_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='default_code']" position="attributes">
+          <attribute name="string">Part No.</attribute>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

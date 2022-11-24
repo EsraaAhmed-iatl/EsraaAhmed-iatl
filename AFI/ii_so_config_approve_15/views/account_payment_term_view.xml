@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <!-- Inherit Form View to Modify it -->
+    <record id="view_inherit_account_payment_term_form" model="ir.ui.view">
+        <field name="name">view.inherit.account.payment.term.form</field>
+        <field name="model">account.payment.term</field>
+        <field name="inherit_id" ref="account.view_payment_term_form"/>
+        <field name="arch" type="xml">
+            <!-- position: after|before|replace|attributes|inside -->
+            <xpath expr="//field[@name='company_id']" position="after">
+                <!-- Add your fields or attributes here -->
+                <field name="is_immediate"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

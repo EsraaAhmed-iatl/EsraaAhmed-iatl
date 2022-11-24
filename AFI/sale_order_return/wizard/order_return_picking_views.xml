@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="view_order_return_picking_form_inherit" model="ir.ui.view">
+            <field name="name">view.inherit.order.return.picking.form</field>
+            <field name="model">order.return.picking</field>
+            <field name="inherit_id" ref="order_return.view_order_return_picking_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='picking_id']" position="after">
+                    <field name="sale_picking_id" domain="[('state', '=', 'done'),('picking_type_code', '=',
+                        'outgoing'),('sale_id', '=', active_id)]" attrs="{'invisible':[('is_sale','!=',True)]}"/>
+                    <field name="is_sale" invisible="1"/>
+                    <field name="sale_id" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='product_return_moves']/tree/field[@name='product_id']" position="before">
+                    <field name="sale_line_id" invisible="1"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

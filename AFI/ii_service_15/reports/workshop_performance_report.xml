@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_workshop_performance">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                     <div class="page">
+                        <t t-foreach="docs" t-as="o">
+                            <h4 align="center">
+                                <u>
+                                    <strong>Workshop Performance Reportt</strong>
+                                    <strong>&#160;</strong>
+                                </u>
+                            </h4>
+                            <h4 align="left"><strong>Number of new work orders during the period:</strong></h4>
+                            <h4 align="center"><strong>From:</strong><strong t-esc="data['form']['from_date']"/>  <strong>To:</strong><strong t-esc="data['form']['to_date']"/></h4>
+                            <div t-if="o.job_order_type == 'inside'">
+                                <h4 align="left"><strong>Details of work orders in the workshop:</strong></h4>
+                                <table class="table" style="direction: rtl;">
+                                    <thead>
+                                        <tr>
+                                            <th>SN</th>
+                                            <th>Job Order No</th>
+                                            <th>Customer Name</th>
+                                            <th>Tractor Model</th>
+                                            <th>Date Of Entry</th>
+                                            <th>End Date</th>
+                                            <th>Job Status</th>
+                                            <th>Labour</th>
+                                            <th>Payment ST</th>
+                                            <th>Note</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-set="i" t-value="1"/>
+                                        <tr>
+                                            <td><span t-esc="i"/><t t-set="i" t-value="i+1"/></td>
+                                            <td><span t-esc="o.job_no"/></td>
+                                            <td><span t-esc="o.customer_id.name"/></td>
+                                            <td><span t-esc="o.tractor_id.name"/></td>
+                                            <td><span t-esc="o.start_date"/></td>
+                                            <td><span t-esc="o.end_date"/></td>
+                                            <td><span t-esc="o.state"/></td>
+                                            <td><span t-esc="o.total_service_cost"/></td>
+                                            <td><span t-esc="o.sales_id.invoice_ids.payment_state"/></td>
+<!--                                            <td><span t-esc="o.complaint_detail_ids.notes"/></td>-->
+<!--                                            <td><span/></td>-->
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div t-if="o.job_order_type == 'outside'">
+
+                            <h4 align="left"><strong>Details of work orders Outside the workshop:</strong></h4>
+
+                            <table class="table" style="direction: rtl;">
+                                <thead>
+                                    <tr>
+                                        <th>SN</th>
+                                        <th>Job Order No</th>
+                                        <th>Customer Name</th>
+                                        <th>Tractor Model</th>
+                                        <th>Date Of Entry</th>
+                                        <th>End Date</th>
+                                        <th>Job Status</th>
+                                        <th>Labour</th>
+                                        <th>Payment ST</th>
+<!--                                        <th>Note</th>-->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="i" t-value="1"/>
+                                    <tr>
+                                        <td><span t-esc="i"/><t t-set="i" t-value="i+1"/></td>
+                                        <td><span t-esc="o.job_no"/></td>
+                                        <td><span t-esc="o.customer_id.name"/></td>
+                                        <td><span t-esc="o.tractor_id.name"/></td>
+                                        <td><span t-esc="o.start_date"/></td>
+                                        <td><span t-esc="o.end_date"/></td>
+                                        <td><span t-esc="o.state"/></td>
+                                        <td><span t-esc="o.total_service_cost"/></td>
+                                        <td><span t-esc="o.sales_id.invoice_ids.payment_state"/></td>
+<!--                                        <td><span t-esc="o.complaint_detail_ids.notes"/></td>-->
+<!--                                        <td><span/></td>-->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="action_workshop_performance_report"
+                model="job.order"
+                string="Workshop Performance Report"
+                report_type="qweb-pdf"
+                name="ii_service_15.report_workshop_performance"
+                file="ii_service_15.report_workshop_performance"
+                menu="False"/>
+    </data>
+</odoo>

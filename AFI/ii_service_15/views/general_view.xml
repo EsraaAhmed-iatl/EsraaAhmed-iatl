@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="service_res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">stock.res.config.settings.view.form.inherit</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="50"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@data-key='sale_management']/h2[1]" position="before">
+                    <h2>After Sales Config</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="service_id"/>
+                                <div class="text-muted">
+                                    Product used for Labor
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="service_id" class="o_light_label"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="travel_id"/>
+                                <div class="text-muted">
+                                    Product used for Milage
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="travel_id" class="o_light_label"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="source_warehouse_id"/>
+                                <div class="text-muted">
+                                    Main Parts Warehouse
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="source_warehouse_id" class="o_light_label"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="temp_warehouse_id"/>
+                                <div class="text-muted">
+                                    Temp Parts Warehouse
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="temp_warehouse_id" class="o_light_label"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+        
+        
+        
+        
+        <record id="inherited_afi_view_picking_form" model="ir.ui.view">
+            <field name="name">inherited.afi.view.picking.form</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="job_id"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_product_product_form" model="ir.ui.view">
+            <field name="name">view.inherit.product.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='sale_ok']" position="before">
+                    <!-- Add your fields or attributes here -->
+                    <field name="is_spare_parts"/>
+                     <label for="is_spare_parts"/>
+                </xpath>
+            </field>
+        </record>
+
+         <record id="view_inherit_product_template_form" model="ir.ui.view">
+            <field name="name">view.inherit.product.template.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='sale_ok']" position="before">
+                    <!-- Add your fields or attributes here -->
+<!--                    <span class="d-inline-block">-->
+<!--                        <field name="is_spare_parts"/>-->
+<!--                        <label for="is_spare_parts"/>-->
+<!--                    </span>-->
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_inherit_product_product_tree" model="ir.ui.view">
+            <field name="name">view.inherit.product.product.tree</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='uom_id']" position="after">
+                    <!-- Add your fields or attributes here -->
+                    <field name="is_spare_parts"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

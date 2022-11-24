@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="0">
+		<!--		Type-->
+		<record id="structure_type_mtwa_employee" model="hr.payroll.structure.type">
+			<field name="name">MTWA Employees</field>
+			<field name="country_id" eval="False"/>
+			<field name="wage_type">monthly</field>
+		</record>
+		<!--		Structure-->
+		<record id="structure_mtwa" model="hr.payroll.structure">
+			<field name="name">MTWA Structure</field>
+			<field name="type_id" ref="structure_type_mtwa_employee"/>
+			<field name="regular_pay" eval="True"/>
+			<field name="country_id" eval="False"/>
+		</record>
+
+		<!--		Category-->
+		<record id="hr_salary_category1" model="hr.salary.rule.category">
+			<field name="name">Incentives</field>
+			<field name="code">INCENTIVES</field>
+		</record>
+		<!--		Salary Rule-->
+		<record id="hr_rule_social_ins1" model="hr.salary.rule">
+			<field name="name">Social Ins.</field>
+			<field name="sequence" eval="10"/>
+			<field name="code">SocialIns</field>
+			<field name="category_id" ref="hr_payroll.DED"/>
+			<field name="condition_select">python</field>
+			<field name="condition_python">result = contract.eligible_si == True</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = -contract.wage*payslip.worked_days*.08</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_rule_social_ins_company1" model="hr.salary.rule">
+			<field name="name">Company Social Ins.</field>
+			<field name="sequence" eval="11"/>
+			<field name="code">SocialInsComp</field>
+			<field name="category_id" ref="hr_payroll.DED"/>
+			<field name="condition_select">python</field>
+			<field name="condition_python">result = contract.eligible_si == True</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = -contract.wage*payslip.worked_days*.17</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_rule_loan1" model="hr.salary.rule">
+			<field name="name">Long Loan</field>
+			<field name="sequence" eval="12"/>
+			<field name="code">LOLOAN</field>
+			<field name="category_id" ref="hr_payroll.DED"/>
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = -payslip.personal_loan</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_rule_short_loan1" model="hr.salary.rule">
+			<field name="name">Short Loan</field>
+			<field name="sequence" eval="13"/>
+			<field name="code">SHLOAN</field>
+			<field name="category_id" ref="hr_payroll.DED"/>
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = -payslip.short_loan</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_rule_attendance1" model="hr.salary.rule">
+			<field name="name">Delay Dedication</field>
+			<field name="sequence" eval="14"/>
+			<field name="code">ATTENDANCE</field>
+			<field name="category_id" ref="hr_payroll.DED"/>
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = -payslip.mon_lost_hours</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_rule_income_tax1" model="hr.salary.rule">
+			<field name="name">Personal Income Tax</field>
+			<field name="sequence" eval="15"/>
+			<field name="code">IncomeTax</field>
+			<field name="category_id" ref="hr_payroll.DED"/>
+			<field name="condition_select">python</field>
+			<field name="condition_python">result = contract.taxable == True </field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">if payslip.income_tax - 40 - 75  > 1230.0:
+    result = -(payslip.income_tax - 40 - 75 - 1230)*.15
+else:
+    result = 0.0
+			</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_rule_uperlimit_tax1" model="hr.salary.rule">
+			<field name="name">Upper Limit Tax</field>
+			<field name="sequence" eval="16"/>
+			<field name="code">UpperLimitTax</field>
+			<field name="category_id" ref="hr_payroll.DED"/>
+			<field name="condition_select">python</field>
+			<field name="condition_python">result = contract.taxable == True</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">if payslip.income_tax - 40 - 75 > 1230.0:
+    result = -2.5
+else:
+    result = 0.0
+			</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_rule_stamp1" model="hr.salary.rule">
+			<field name="name">Stamp</field>
+			<field name="sequence" eval="17"/>
+			<field name="code">STAMP</field>
+			<field name="category_id" ref="hr_payroll.DED"/>
+			<field name="condition_select">python</field>
+			<field name="condition_python">result = contract.taxable == True</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">if payslip.income_tax - 40 - 75  > 1230.0:
+	result = -1
+else:
+	result = 0.0
+			</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_rule_tax1" model="hr.salary.rule">
+			<field name="name">Total Tax</field>
+			<field name="sequence" eval="18"/>
+			<field name="code">TAX</field>
+			<field name="category_id" ref="hr_payroll.DED"/>
+			<field name="condition_select">python</field>
+			<field name="condition_python">result = contract.taxable == True</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">if payslip.income_tax - 40 - 75  &gt; 1230.0:
+	result = -(payslip.income_tax - 40 - 75 - 1230)*.15 - 3.5
+else:
+	result = 0.0
+			</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_rule_basic1" model="hr.salary.rule">
+			<field name="name">Basic</field>
+			<field name="sequence" eval="1"/>
+			<field name="code">BASIC</field>
+			<field name="category_id" ref="hr_payroll.BASIC"/>
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = contract.wage*payslip.worked_days*.45</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_rule_cola1" model="hr.salary.rule">
+			<field name="name">Cola</field>
+			<field name="sequence" eval="2"/>
+			<field name="code">COLA</field>
+			<field name="category_id" ref="hr_payroll.ALW"/>
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = contract.wage*payslip.worked_days*.2</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_rule_transport1" model="hr.salary.rule">
+			<field name="name">Transport</field>
+			<field name="sequence" eval="3"/>
+			<field name="code">TANSPORT</field>
+			<field name="category_id" ref="hr_payroll.ALW"/>
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = contract.wage*payslip.worked_days*.18</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_rule_housing1" model="hr.salary.rule">
+			<field name="name">Housing</field>
+			<field name="sequence" eval="4"/>
+			<field name="code">HOUSING</field>
+			<field name="category_id" ref="hr_payroll.ALW"/>
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = contract.wage*payslip.worked_days*.07</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_rule_loan_social1" model="hr.salary.rule">
+			<field name="name">Social allowance</field>
+			<field name="sequence" eval="5"/>
+			<field name="code">SocialALW</field>
+			<field name="category_id" ref="hr_payroll.ALW"/>
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = contract.wage*payslip.worked_days*.05</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_rule_acting1" model="hr.salary.rule">
+			<field name="name">Acting allowance</field>
+			<field name="sequence" eval="6"/>
+			<field name="code">ActingALW</field>
+			<field name="category_id" ref="hr_payroll.ALW"/>
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = contract.wage*payslip.worked_days*.05</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_rule_representation1" model="hr.salary.rule">
+			<field name="name">Representation Allowance</field>
+			<field name="sequence" eval="7"/>
+			<field name="code">RepresentationALW</field>
+			<field name="category_id" ref="hr_payroll.ALW"/>
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = payslip.representation_allw</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_rule_family1" model="hr.salary.rule">
+			<field name="name">Family Burdens</field>
+			<field name="sequence" eval="8"/>
+			<field name="code">FamilyBurdens</field>
+			<field name="category_id" ref="hr_payroll.ALW"/>
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = payslip.family_burdens</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+
+		<record id="hr_salary_50year_rule1" model="hr.salary.rule">
+			<field name="name">50 Year Exemption Limit</field>
+			<field name="sequence" eval="9"/>
+			<field name="code">Exemption</field>
+			<field name="category_id" ref="hr_payroll.ALW"/>
+			<field name="condition_select">python</field>
+			<field name="condition_python">result = employee.age_in_years >=50</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = 600</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_rule_gross1" model="hr.salary.rule">
+			<field name="name">Gross</field>
+			<field name="sequence" eval="7"/>
+			<field name="code">GROSS</field>
+			<field name="category_id" ref="hr_payroll.GROSS"/>
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = contract.wage*payslip.worked_days</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_rule_unpaid1" model="hr.salary.rule">
+			<field name="name">Unpaid</field>
+			<field name="sequence" eval="12"/>
+			<field name="code">Unpaid</field>
+			<field name="category_id" ref="hr_payroll.DED"/>
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = -payslip.unpaid_leave</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="hr_other_dedication1" model="hr.salary.rule">
+			<field name="name">Other Dedication</field>
+			<field name="sequence" eval="13"/>
+			<field name="code">OtherDeduction</field>
+			<field name="category_id" ref="hr_payroll.DED"/>
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = -payslip.penalties_deduction</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+
+		<record id="mtwa_hr_rule_net_w_tax_w_in1" model="hr.salary.rule">
+			<field name="name">Net</field>
+			<field name="sequence" eval="200"/>
+			<field name="code">NET</field>
+			<field name="category_id" ref="hr_payroll.NET"/>
+			<field name="condition_select">python</field>
+			<field name="condition_python">result = contract.taxable == True and contract.eligible_si == True</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">if payslip.income_tax - 40 - 75  > 1230.0:
+	result = categories.GROSS + categories.DED + contract.wage*payslip.worked_days*.17 + (payslip.income_tax - 40 - 75 - 1230)*.15 + 3.5
+else:
+	result = categories.GROSS + categories.DED + contract.wage*payslip.worked_days*.17
+			</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="mtwa_hr_rule_net_wo_tax1" model="hr.salary.rule">
+			<field name="name">Net</field>
+			<field name="sequence" eval="200"/>
+			<field name="code">NET</field>
+			<field name="category_id" ref="hr_payroll.NET"/>
+			<field name="condition_select">python</field>
+			<field name="condition_python">result = contract.taxable == False and contract.eligible_si == False</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = categories.GROSS + categories.DED</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="mtwa_hr_rule_net_w_tax_wo_in1" model="hr.salary.rule">
+			<field name="name">Net</field>
+			<field name="sequence" eval="200"/>
+			<field name="code">NET</field>
+			<field name="category_id" ref="hr_payroll.NET"/>
+			<field name="condition_select">python</field>
+			<field name="condition_python">result = contract.taxable == True and contract.eligible_si == False</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">if payslip.income_tax - 40 - 75  > 1230.0:
+	result = categories.GROSS + categories.DED -(payslip.income_tax - 40 - 75 - 1230)*.15 - 3.5
+else:
+	result = categories.GROSS + categories.DED
+			</field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+		<record id="mtwa_hr_rule_net_wo_tax_w_in1" model="hr.salary.rule">
+			<field name="name">Net</field>
+			<field name="sequence" eval="200"/>
+			<field name="code">NET</field>
+			<field name="category_id" ref="hr_payroll.NET"/>
+			<field name="condition_select">python</field>
+			<field name="condition_python">result = contract.taxable == False and contract.eligible_si == True</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute">result = categories.GROSS + categories.DED + contract.wage*payslip.worked_days*.17 </field>
+			<field name="struct_id" ref="structure_mtwa"/>
+		</record>
+
+	</data>
+</odoo>

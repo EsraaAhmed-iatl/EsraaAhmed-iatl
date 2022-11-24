@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <!-- Inherit Product Category Form -->
+        <record id="view_product_category_inherit" model="ir.ui.view">
+            <field name="name">Product Category form</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="account.view_category_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='account_property']" position="after">
+                    <group string="Sale Return Account">
+                        <field name="return_sale_account" required="1"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

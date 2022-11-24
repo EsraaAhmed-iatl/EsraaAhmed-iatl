@@ -1,0 +1,137 @@
+<odoo>
+    <data>
+        <!-- Form View-->
+        <record id="view_order_return_form" model="ir.ui.view">
+            <field name="name">view.order.return.form</field>
+            <field name="model">order.return</field>
+            <field name="arch" type="xml">
+                <form string="Order Return" create="false">
+                    <header>
+                        <button name="action_confirm_return" string="Confirm" class="oe_highlight" states="draft"
+                                type="object"/>
+                        <button name="action_approve_return" string="Approve" class="oe_highlight" states="confirm"
+                                type="object"/>
+                        <button name="action_cancel_return" string="Cancel" states="confirm"
+                                type="object"/>
+                        <button name="action_set_to_draft" string="Set To Draft" states="cancel"
+                                type="object"/>
+                        <!--                        <button name="action_reverse" class="oe_highlight" string="Add Credit Note"-->
+                        <!--                                type='object' attrs="{'invisible': [('state', '!=', 'approve')]}"/>-->
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,aprove"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_open_picking"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-truck"
+                                    attrs="{'invisible':[('picking_count','=',0)]}">
+                                <field name="picking_count" widget="statinfo"/>
+                            </button>
+                            <button name="action_open_return_moves"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-pencil-square-o"
+                                    attrs="{'invisible':[('move_count','=',0)]}">
+                                <field name="move_count" widget="statinfo"/>
+
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="......"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="partner_id" attrs="{'readonly': [('state', 'not in', ('draft'))]}"/>
+                                <field name="picking_id" required="0" invisible="1"/>
+                                <field name="return_type" invisible="1"/>
+                                <field name="currency_id" attrs="{'readonly': [('state', 'not in', ('draft'))]}"/>
+                                <field name="reason_id" required="1"
+                                       attrs="{'readonly': [('state', 'not in', ('draft'))]}"/>
+                            </group>
+                            <group>
+                                <field name="return_date" attrs="{'readonly': [('state', 'not in', ('draft'))]}"/>
+                                <field name="origin" attrs="{'readonly': [('state', 'not in', ('draft'))]}"/>
+                                <field name="location_id" required="1"
+                                       attrs="{'readonly': [('state', 'not in', ('draft'))]}"/>
+                                <field name="company_id" attrs="{'readonly': [('state', 'not in', ('draft'))]}"/>
+                                <!--                                <field name="bill_ids" widget="many2many_tags" required="0"/>-->
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Return Line">
+                                <field name="return_line" attrs="{'readonly': [('state', 'not in', ('draft'))]}">
+                                    <tree editable="bottom">
+                                        <field name="product_id" required="1"/>
+                                        <field name="name"/>
+                                        <field name="move_id" invisible="1"/>
+                                        <field name="delivery_qty" readonly="1" invisible="1"/>
+                                        <field name="qty_return"/>
+                                        <field name="product_uom" invisible="1"/>
+                                        <field name="price_unit" readonly="1"/>
+                                        <field name="price_total" invisible="1"/>
+                                        <field name="price_subtotal"/>
+                                    </tree>
+                                </field>
+                                <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                                    <field name="amount_untaxed" widget="monetary"
+                                           options="{'currency_field': 'currency_id'}"/>
+                                    <field name="amount_tax" widget="monetary"
+                                           options="{'currency_field': 'currency_id'}"/>
+                                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                        <label for="amount_total"/>
+                                    </div>
+                                    <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator"
+                                           widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                </group>
+                                <div class="oe_clear"/>
+
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree Order Return -->
+        <record id="view_order_return_tree" model="ir.ui.view">
+            <field name="name">view.order.return.tree</field>
+            <field name="model">order.return</field>
+            <field name="arch" type="xml">
+                <tree string="Order Return" create="false">
+                    <field name="name"/>
+                    <field name="return_date"/>
+                    <field name="partner_id"/>
+                    <field name="origin"/>
+                    <field name="picking_id"/>
+                    <field name="location_id"/>
+                    <field name="company_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.server" id="action_move_switch_invoice_to_credit_note">
+            <field name="name">Switch into refund/credit note</field>
+            <field name="model_id" ref="account.model_account_move"/>
+            <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="state">code</field>
+            <field name="binding_view_types">form</field>
+            <field name="code">
+                if records:
+                action = records.action_switch_invoice_into_refund_credit_note()
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

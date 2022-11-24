@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="view_return_reason_form" model="ir.ui.view">
+            <field name="name">view.return.reason.form</field>
+            <field name="model">return.reason</field>
+            <field name="arch" type="xml">
+                <form string="Return Reason">
+                    <sheet>
+                        <group>
+                            <field name="name" required="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_return_reason_view" model="ir.actions.act_window">
+            <field name="name">Return Reason</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">return.reason</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_return_reason_view"
+                  name="Return Reason"
+                  parent="purchase.menu_purchase_config"
+                  action="action_return_reason_view"
+                  sequence="3"/>
+    </data>
+</odoo>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="hr_trip_report">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.html_container">
+                    <t t-call="web.external_layout">
+                        <t t-set="counter" t-value="0"/>
+                        <div class="page">
+                            <div style="background-color: rgba(128,128,128,.2);" class="text-center">
+                                <tr>تصريح المأمورية</tr><br/>
+                            </div>
+                            <div style="direction:rtl" >
+                                <table dir="rtl">
+                                    <tr>
+                                        <td colspan="4">
+                                            الموظف:                                    <span t-field="o.employee_id"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            الوظيفة:                                   <span t-field="o.job_id"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            الادارة التابع لها  الموظف:                                   <span t-field="o.department_id"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            جهة المأمورية:                                   <span t-field="o.trip_dist"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            تاريخ القيام بالمأمورية:الساعة:<span t-field="o.trip_start_date" t-field-options='{"format": "hh.mm.ss"}'/>
+                                        </td>
+                                        <td>
+                                            يوم <u><span t-field="o.day_in_words"/></u>
+                                        </td>
+                                        <td>
+                                            الموافق  <span t-field="o.trip_start_date" t-field-options='{"format": "dd/MM/y"}'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            المهمة:                                   <span t-field="o.name"/>
+                                        </td>
+                                        <td colspan="4">
+                                            صيانة:                                   <span t-field="o.maintenance"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            اعتماد مدير القسم:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> ...................................</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            قسم الموارد البشرية:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            ...................................
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            تاريخ العودة من المأمورية:الساعة:<span t-field="o.trip_end_date" t-field-options='{"format": "hh.mm.ss"}'/>
+                                        </td>
+                                        <td>
+                                            يوم<u><span t-field="o.day_in_words"/></u>
+                                        </td>
+                                        <td>
+                                            الموافق<span t-field="o.trip_end_date" t-field-options='{"format": "dd/MM/y"}'/>
+                                        </td>
+                                    </tr>
+                                    <!--<tr>-->
+                                    <!--تاريخ العودة من المأمورية:الساعة:<span t-field="o.trip_end_date" t-field-options='{"format": "hh.mm.ss"}'/>-->
+                                    <!--يوم<u><span t-field="o.day_in_words"/></u>-->
+                                    <!--الموافق<span t-field="o.day_start_in_words" t-field-options='{"format": "dd/MM/y"}'/>-->
+                                    <!--</tr>-->
+                                    <tr>
+                                        <td colspan="4">
+                                            اعتماد مدير القسم:
+                                        </td>
+                                        <tr>
+                                            <td>
+                                                ...................................
+                                            </td>
+                                        </tr>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            قسم الموارد البشرية:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            ...................................
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

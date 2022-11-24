@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data >
+        <!-- QWeb Reports -->
+        <report
+            id="hr_trip"
+            model="hr.trip"
+            string="تصريح مأمورية"
+            report_type="qweb-pdf"
+            name="ii_hr_afi_15.hr_trip_report"
+            file="ii_hr_afi_15.hr_trip_report"
+            menu="True"
+        />
+    </data>
+</odoo>

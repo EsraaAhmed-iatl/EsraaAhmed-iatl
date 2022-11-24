@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_job_order">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <td t-call="web.external_layout">
+                        <div class="page">
+                            <div class="oe_structure">
+                                <div class="row row-centered">
+                                    <div class="col-md-12 col-centered">
+                                        <group string="Job Order Report">
+                                            <table class="table" style="direction: rtl;">
+                                                <tr/>
+                                                <tr/>
+                                                <tr class="text-center">
+                                                    <td colspan="12" style="border: none;">
+                                                        <h4>
+                                                            <u>
+                                                                <strong>أمر تشغيل رقم:</strong>
+                                                                <strong>&#160;</strong>
+                                                                <span t-field="o.job_no"/>
+                                                            </u>
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: none;">
+                                                        <strong>تاريخ البلاغ:</strong>
+                                                    </td>
+                                                    <td style="border: none;" class="text-center">
+                                                        <span t-field="o.complaint_date"/>
+                                                    </td>
+                                                    <td style="border: none;">
+                                                        <strong>تاريخ البداية:</strong>
+                                                    </td>
+                                                    <td style="border: none;" class="text-center">
+                                                        <span t-field="o.start_date"/>
+                                                    </td>
+                                                    <td style="border: none;">
+                                                        <strong>تاريخ الإنتهاء:</strong>
+                                                    </td>
+                                                    <td style="border: none;" class="text-center">
+                                                        <span t-field="o.end_date"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: none;">
+                                                        <strong>إسم العميل:</strong>
+                                                    </td>
+                                                    <td style="border: none;" class="text-center" colspan="3">
+                                                        <span t-field="o.customer_id.name"/>
+                                                    </td>
+                                                    <td style="border: none;">
+                                                        <strong>تلفون:</strong>
+                                                    </td>
+                                                    <td style="border: none;" class="text-center">
+                                                        <span t-field="o.customer_contact"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: none;">
+                                                        <strong>النوع:</strong>
+                                                    </td>
+                                                    <td style="border: none;" class="text-center">
+                                                        <span t-field="o.tractor_id.name"/>
+                                                    </td>
+                                                    <td style="border: none;">
+                                                        <strong>رقم الهيكل:</strong>
+                                                    </td>
+                                                    <td style="border: none;" class="text-center">
+                                                        <span t-field="o.lot_id.name"/>
+                                                    </td>
+                                                    <td style="border: none;">
+                                                        <strong>قرأة عداد الساعات:</strong>
+                                                    </td>
+                                                    <td style="border: none;" class="text-center">
+                                                        <!--<t t-esc="'{0:,}'.format(int(o.meter_reading))"/>-->
+                                                        <t t-esc="'{0:,.2f}'.format(o.meter_reading)" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: none;">
+                                                        <strong>تفاصيل الضمان:</strong>
+                                                    </td>
+                                                    <td style="border: none;" class="text-center">
+                                                        <t t-if="o.warranty == 'covered'">
+                                                            <span>تحت الضمان</span>
+                                                        </t>
+                                                        <t t-if="o.warranty == 'not-covered'">
+                                                            <span>خارج الضمان</span>
+                                                        </t>
+                                                    </td>
+                                                    <td style="border: none;">
+                                                        <strong>نوع أمر التشغيل:</strong>
+                                                    </td>
+                                                    <td style="border: none;" class="text-center">
+                                                        <t t-if="o.job_order_type == 'inside'">
+                                                            <span>داخل الورشة</span>
+                                                        </t>
+                                                        <t t-if="o.job_order_type == 'outside'">
+                                                            <span>خارج الورشة</span>
+                                                        </t>
+                                                    </td>
+                                                    <td style="border: none;">
+                                                        <strong>تكلفة الترحيل:</strong>
+                                                    </td>
+                                                    <td style="border: none;">
+                                                        <span t-field="o.travel_exp"
+                                                              t-field-options='{"widget": "monetary", "display_currency": "res_company.currency_id"}'/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1 px solid black;">
+                                                        <strong>موقع العميل:</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" class="text-center"
+                                                        colspan="2">
+                                                        <span t-field="o.customer_location"/>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;">
+                                                        <strong>تمت تسوية الحساب بالفاتورة:</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" class="text-center"
+                                                        colspan="2">
+                                                        <span t-field="o.sales_id.name"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1 px solid black;" class="text-right"
+                                                        colspan="6">
+                                                        <strong>الأعطال المطلوب صيانتها:</strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1 px solid black;" class="text-center"
+                                                        colspan="2">
+                                                        <strong>م.</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" class="text-center"
+                                                        colspan="2">
+                                                        <strong>البيان</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" class="text-right"
+                                                        colspan="2">
+                                                        <strong>ملأحظات</strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <t t-set="sr" t-value="1"/>
+                                                    <t t-foreach="o.complaint_detail_ids" t-as="m">
+                                                        <tr>
+                                                            <td style="border: 1 px solid black;" colspan="2">
+                                                                <span t-esc="sr"/>
+                                                                <t t-set="sr" t-value="sr + 1"/>
+                                                            </td>
+                                                            <td style="border: 1 px solid black;" colspan="2">
+                                                                <span t-field="m.complaint_id.name"/>
+                                                            </td>
+                                                            <td style="border: 1 px solid black;" colspan="2">
+                                                                <span t-field="m.notes"/>
+                                                            </td>
+                                                        </tr>
+                                                    </t>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: none;"></td>
+                                                    <td style="border: none;"></td>
+                                                    <td style="border: none;"></td>
+                                                    <td style="border: none;"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1 px solid black;" class="text-right"
+                                                        colspan="6">
+                                                        <strong>الأعمال التى أنجزت:</strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1 px solid black;" class="text-center">
+                                                        <strong>م.</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" class="text-center"
+                                                        colspan="2">
+                                                        <strong>البيان</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" class="text-center">
+                                                        <strong>الزمن المستهلك:</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" class="text-center">
+                                                        <strong>قيمة الساعة:</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" class="text-center">
+                                                        <strong>قيمة الساعة:</strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <t t-set="sr" t-value="1"/>
+                                                    <t t-foreach="o.service_details_ids" t-as="m">
+                                                        <tr>
+                                                            <td style="border: 1 px solid black;">
+                                                                <span t-esc="sr"/>
+                                                                <t t-set="sr" t-value="sr + 1"/>
+                                                            </td>
+                                                            <td style="border: 1 px solid black;" colspan="2">
+                                                                <span t-field="m.service_id.name"/>
+                                                            </td>
+                                                            <td style="border: 1 px solid black;">
+                                                                <span t-field="m.time_consumed"/>
+                                                            </td>
+                                                            <td style="border: 1 px solid black;">
+                                                                <t t-esc="'{0:,.2f}'.format(int(m.hour_rate))"/>
+                                                            </td>
+                                                            <td style="border: 1 px solid black;">
+                                                                <t t-esc="'{0:,.2f}'.format(int(m.total))"/>
+                                                            </td>
+                                                        </tr>
+                                                    </t>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1 px solid black;" colspan="3">
+                                                        <strong>الجملة</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;">
+                                                        <span t-field="o.total_service_hours"/>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;">
+                                                        <td style="border: 1 px solid black;">
+                                                            <t t-esc="'{0:,.2f}'.format(int(o.total_service_cost))"/>
+                                                        </td>
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: none;"></td>
+                                                    <td style="border: none;"></td>
+                                                    <td style="border: none;"></td>
+                                                    <td style="border: none;"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1 px solid black;" class="text-right"
+                                                        colspan="6">
+                                                        <strong>أعمال إضافية:</strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1 px solid black;" class="text-center">
+                                                        <strong>م.</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" class="text-center"
+                                                        colspan="2">
+                                                        <strong>البيان</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" class="text-center">
+                                                        <strong>الزمن المستهلك:</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" class="text-center">
+                                                        <strong>قيمة الساعة:</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" class="text-center">
+                                                        <strong>قيمة الساعة:</strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <t t-set="sr" t-value="1"/>
+                                                    <t t-foreach="o.aservice_details_ids" t-as="m">
+                                                        <tr>
+                                                            <td style="border: 1 px solid black;">
+                                                                <span t-esc="sr"/>
+                                                                <t t-set="sr" t-value="sr + 1"/>
+                                                            </td>
+                                                            <td style="border: 1 px solid black;" colspan="2">
+                                                                <span t-field="m.service_id.name"/>
+                                                            </td>
+                                                            <td style="border: 1 px solid black;">
+                                                                <span t-field="m.unit_qty"/>
+                                                            </td>
+                                                            <td style="border: 1 px solid black;">
+                                                                 <span t-field="m.cost"/>
+                                                            </td>
+                                                            <td style="border: 1 px solid black;">
+                                                                 <span t-field="m.total"/>
+                                                            </td>
+<!--                                                            <td style="border: 1 px solid black;">-->
+<!--                                                                <t t-esc="'{0:,.2f}'.format(int(m.hour_rate))"/>-->
+<!--                                                            </td>-->
+                                                        </tr>
+                                                    </t>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 1 px solid black;">
+                                                        <strong>إسم المهندس المسئول:</strong>
+                                                    </td>
+<!--                                                    <td style="border: 1 px solid black;" colspan="2">-->
+<!--                                                        <span t-field="o.engineer_id.name"/>-->
+<!--                                                    </td>-->
+                                                    <td style="border: 1 px solid black;">
+                                                        <strong>التوقيع:</strong>
+                                                    </td>
+                                                    <td style="border: 1 px solid black;" colspan="2"/>
+                                                </tr>
+                                                <tr>
+                                                    <tr>
+                                                        <td style="border: 1 px solid black;">
+                                                            <strong>إسم العميل:</strong>
+                                                        </td>
+                                                        <td style="border: 1 px solid black;" colspan="2">
+                                                            <span t-field="o.customer_id.name"/>
+                                                        </td>
+                                                        <td style="border: 1 px solid black;">
+                                                            <strong>التوقيع:</strong>
+                                                        </td>
+                                                        <td style="border: 1 px solid black;" colspan="2"/>
+                                                    </tr>
+                                                </tr>
+                                            </table>
+                                        </group>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

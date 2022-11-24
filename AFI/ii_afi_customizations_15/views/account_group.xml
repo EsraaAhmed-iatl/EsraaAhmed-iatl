@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  
+
+    <record id="inherited_view_account_group_form" model="ir.ui.view">
+        <field name="name">account.group.form</field>
+        <field name="model">account.group</field>
+        <field name="inherit_id" ref="account.view_account_group_form"/>
+        <field name="arch" type="xml">
+            <!--            <xpath expr="//field[@name='name']" position="after">-->
+            <!--                <field name="code" />-->
+            <!--            </xpath>-->
+            <xpath expr="//sheet/group" position="replace">
+                <group>
+                    <field name="name"/>
+                    <field name="parent_id"/>
+                    <field name="code" />
+                    <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="inherited_view_account_group_tree" model="ir.ui.view">
+        <field name="name">account.group.tree</field>
+        <field name="model">account.group</field>
+        <field name="inherit_id" ref="account.view_account_group_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='code_prefix_start']" position="replace">
+                <field name="code" />
+            </xpath>
+            <xpath expr="//field[@name='code_prefix_end']" position="replace">
+                <field name="parent_id"/>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

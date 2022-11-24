@@ -1,0 +1,601 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* almuntada_planning
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-03 08:07+0000\n"
+"PO-Revision-Date: 2017-10-03 11:08+0200\n"
+"Last-Translator: Tagwa <tqwamorshed@hotmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_followup_task_achievement_per
+msgid "Achievement ? %"
+msgstr "نسبة الانجاز"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_active
+msgid "Active?"
+msgstr "نشط?"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_program_program_allocated_budget
+msgid "Allocated budget"
+msgstr "الميزانية المقترحة"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.task_task_view_form
+msgid "Begin"
+msgstr "البداية"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_color
+msgid "Color Index"
+msgstr "اللون"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_program_program_company_id
+msgid "Company id"
+msgstr "Company id"
+
+#. module: almuntada_planning
+#: model:ir.ui.menu,name:almuntada_planning.config_menu
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_followup_task_create_uid
+#: model:ir.model.fields,field_description:almuntada_planning.field_indicator_indicator_create_uid
+#: model:ir.model.fields,field_description:almuntada_planning.field_kpi_kpi_create_uid
+#: model:ir.model.fields,field_description:almuntada_planning.field_operation_operation_create_uid
+#: model:ir.model.fields,field_description:almuntada_planning.field_program_program_create_uid
+#: model:ir.model.fields,field_description:almuntada_planning.field_requirement_requirement_create_uid
+#: model:ir.model.fields,field_description:almuntada_planning.field_strategic_strategic_create_uid
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_followup_task_create_date
+#: model:ir.model.fields,field_description:almuntada_planning.field_indicator_indicator_create_date
+#: model:ir.model.fields,field_description:almuntada_planning.field_kpi_kpi_create_date
+#: model:ir.model.fields,field_description:almuntada_planning.field_operation_operation_create_date
+#: model:ir.model.fields,field_description:almuntada_planning.field_program_program_create_date
+#: model:ir.model.fields,field_description:almuntada_planning.field_requirement_requirement_create_date
+#: model:ir.model.fields,field_description:almuntada_planning.field_strategic_strategic_create_date
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_program_program_company_currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.report_task
+msgid "Date End"
+msgstr "تاريخ النهاية"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_date_from
+msgid "Date From"
+msgstr "تاريخ البداية"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.report_task
+msgid "Date Start"
+msgstr "تاريخ البداية"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_date_to
+msgid "Date To"
+msgstr "تاريخ النهاية"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.view_task_kanban
+msgid "Dead Line"
+msgstr "تاريخ نهاية المهمة"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.view_task_kanban
+msgid "Delete"
+msgstr "حذف"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_description
+#: model:ir.ui.view,arch_db:almuntada_planning.task_task_view_form
+msgid "Description"
+msgstr "الوصف"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_followup_task_display_name
+#: model:ir.model.fields,field_description:almuntada_planning.field_indicator_indicator_display_name
+#: model:ir.model.fields,field_description:almuntada_planning.field_kpi_kpi_display_name
+#: model:ir.model.fields,field_description:almuntada_planning.field_operation_operation_display_name
+#: model:ir.model.fields,field_description:almuntada_planning.field_program_program_display_name
+#: model:ir.model.fields,field_description:almuntada_planning.field_requirement_requirement_display_name
+#: model:ir.model.fields,field_description:almuntada_planning.field_strategic_strategic_display_name
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.task_task_view_form
+msgid "Divided"
+msgstr "تقسيم المهمة"
+
+#. module: almuntada_planning
+#: selection:task.task,state:0
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.view_task_kanban
+msgid "Edit Task"
+msgstr "تعديل المهمة"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.report_task
+msgid "Employee In Charge"
+msgstr "الموظف المسؤول"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_employee_in_charge
+msgid "Employee in charge"
+msgstr "الموظف المسؤول"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_operation_operation_end_date
+msgid "End Date"
+msgstr "تاريخ الإنتهاء"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.task_task_view_form
+msgid "Finish"
+msgstr "النهاية"
+
+#. module: almuntada_planning
+#: selection:task.task,state:0
+msgid "Finished"
+msgstr "النهاية"
+
+#. module: almuntada_planning
+#: model:ir.model,name:almuntada_planning.model_followup_operation
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_followup_operation_id
+msgid "Followup Operation"
+msgstr "متابعة العمليات"
+
+#. module: almuntada_planning
+#: model:ir.actions.act_window,name:almuntada_planning.action_followup_task
+#: model:ir.model,name:almuntada_planning.model_followup_task
+#: model:ir.ui.view,arch_db:almuntada_planning.followup_task_view_tree
+msgid "Followup Task"
+msgstr "متابعة المهمة"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.followup_task_view_form
+msgid "Followups Information"
+msgstr "معلومات المتابعة"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.followup_task_view_form
+msgid "Followups Task"
+msgstr "متابعة المهام"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.task_task_view_form
+msgid "Freez"
+msgstr "ايقاف مؤقت"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_followup_task_id
+#: model:ir.model.fields,field_description:almuntada_planning.field_indicator_indicator_id
+#: model:ir.model.fields,field_description:almuntada_planning.field_kpi_kpi_id
+#: model:ir.model.fields,field_description:almuntada_planning.field_operation_operation_id
+#: model:ir.model.fields,field_description:almuntada_planning.field_program_program_id
+#: model:ir.model.fields,field_description:almuntada_planning.field_requirement_requirement_id
+#: model:ir.model.fields,field_description:almuntada_planning.field_strategic_strategic_id
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_indicator_indicator_indicator_name
+msgid "Indicator Name"
+msgstr "اسم المؤشر"
+
+#. module: almuntada_planning
+#: code:addons/almuntada_planning/models/indicator.py:15
+#: sql_constraint:indicator.indicator:0
+#, python-format
+msgid "Indicator name must be unique!"
+msgstr "اسم المؤشر يجب ان يكون متفردا"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.indicator_view_form
+#: model:ir.ui.view,arch_db:almuntada_planning.strategic_view_form
+msgid "Information"
+msgstr "المعلومات"
+
+#. module: almuntada_planning
+#: model:ir.actions.act_window,name:almuntada_planning.action_kpi
+msgid "KPI"
+msgstr "مقياس الاداء"
+
+#. module: almuntada_planning
+#: code:addons/almuntada_planning/models/kpi.py:16 sql_constraint:kpi.kpi:0
+#, python-format
+msgid "KPI name must be unique!"
+msgstr "مسمي مقياس الاداء يجب ان يكون متفردا"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.operation_view_form
+msgid "KPIs"
+msgstr "مقياس الاداء"
+
+#. module: almuntada_planning
+#: model:ir.ui.menu,name:almuntada_planning.kpi_menu
+msgid "Key Performance Indicator"
+msgstr "مقياس الاداء"
+
+#. module: almuntada_planning
+#: model:ir.model,name:almuntada_planning.model_kpi_kpi
+#: model:ir.model.fields,field_description:almuntada_planning.field_kpi_kpi_kpi_name
+#: model:ir.model.fields,field_description:almuntada_planning.field_operation_operation_kpi_ids
+#: model:ir.ui.view,arch_db:almuntada_planning.kpi_view_form
+msgid "Key Performance Indicators"
+msgstr "مقياس الاداء"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_followup_task___last_update
+#: model:ir.model.fields,field_description:almuntada_planning.field_indicator_indicator___last_update
+#: model:ir.model.fields,field_description:almuntada_planning.field_kpi_kpi___last_update
+#: model:ir.model.fields,field_description:almuntada_planning.field_operation_operation___last_update
+#: model:ir.model.fields,field_description:almuntada_planning.field_program_program___last_update
+#: model:ir.model.fields,field_description:almuntada_planning.field_requirement_requirement___last_update
+#: model:ir.model.fields,field_description:almuntada_planning.field_strategic_strategic___last_update
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_followup_task_write_uid
+#: model:ir.model.fields,field_description:almuntada_planning.field_indicator_indicator_write_uid
+#: model:ir.model.fields,field_description:almuntada_planning.field_kpi_kpi_write_uid
+#: model:ir.model.fields,field_description:almuntada_planning.field_operation_operation_write_uid
+#: model:ir.model.fields,field_description:almuntada_planning.field_program_program_write_uid
+#: model:ir.model.fields,field_description:almuntada_planning.field_requirement_requirement_write_uid
+#: model:ir.model.fields,field_description:almuntada_planning.field_strategic_strategic_write_uid
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_followup_task_write_date
+#: model:ir.model.fields,field_description:almuntada_planning.field_indicator_indicator_write_date
+#: model:ir.model.fields,field_description:almuntada_planning.field_kpi_kpi_write_date
+#: model:ir.model.fields,field_description:almuntada_planning.field_operation_operation_write_date
+#: model:ir.model.fields,field_description:almuntada_planning.field_program_program_write_date
+#: model:ir.model.fields,field_description:almuntada_planning.field_requirement_requirement_write_date
+#: model:ir.model.fields,field_description:almuntada_planning.field_strategic_strategic_write_date
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.task_view_filter
+msgid "My Tasks"
+msgstr "مهامي"
+
+#. module: almuntada_planning
+#: selection:task.task,priority:0
+msgid "Normal"
+msgstr "اقل اهمية"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_followup_task_note
+msgid "Notes"
+msgstr "الملاحظات"
+
+#. module: almuntada_planning
+#: model:ir.actions.act_window,name:almuntada_planning.action_operation
+#: model:ir.model,name:almuntada_planning.model_operation_operation
+#: model:ir.model.fields,field_description:almuntada_planning.field_kpi_kpi_operation_id
+#: model:ir.model.fields,field_description:almuntada_planning.field_strategic_strategic_operation_ids
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_operation_id
+msgid "Operation"
+msgstr "العملية"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_followup_task_operation_name
+#: model:ir.model.fields,field_description:almuntada_planning.field_operation_operation_operation_name
+msgid "Operation Name"
+msgstr "اسم العملية"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_program_program_operation_id
+msgid "Operation Objective"
+msgstr "هدف العملية"
+
+#. module: almuntada_planning
+#: model:ir.ui.menu,name:almuntada_planning.operation_config
+msgid "Operation Objective Plan"
+msgstr "خطة اهداف العمليات"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.operation_view_form
+msgid "Operation Plan Period"
+msgstr "فترة خطة العملية"
+
+#. module: almuntada_planning
+#: code:addons/almuntada_planning/models/operation.py:23
+#, python-format
+msgid "Operation name must be unique!"
+msgstr "مسمي العملية يجب ان يكون متفردا"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.strategic_view_form
+msgid "Operations"
+msgstr "العمليات"
+
+#. module: almuntada_planning
+#: selection:task.task,state:0
+msgid "Pending"
+msgstr "قيد الانتظار"
+
+#. module: almuntada_planning
+#: model:ir.ui.menu,name:almuntada_planning.planning_dev_config
+#: model:ir.ui.menu,name:almuntada_planning.planning_dev_root
+msgid "Planning and Development"
+msgstr "التخطيط والتطوير"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_priority
+msgid "Priority"
+msgstr "الأولوية"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_followup_task_priority
+msgid "Priority Type"
+msgstr "درجة الاهمية"
+
+#. module: almuntada_planning
+#: model:ir.actions.act_window,name:almuntada_planning.action_program
+#: model:ir.model,name:almuntada_planning.model_program_program
+#: model:ir.model.fields,field_description:almuntada_planning.field_followup_task_program_name
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_program_id
+#: model:ir.ui.menu,name:almuntada_planning.program_config
+#: model:ir.ui.view,arch_db:almuntada_planning.program_program_view_pivot
+#: model:ir.ui.view,arch_db:almuntada_planning.program_view_form
+msgid "Program"
+msgstr "البرنامج"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.program_view_form
+msgid "Program Information"
+msgstr "معلومات البرامج"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_program_program_program_name
+#: model:ir.ui.view,arch_db:almuntada_planning.report_task
+msgid "Program Name"
+msgstr "مسمي البرنامج"
+
+#. module: almuntada_planning
+#: code:addons/almuntada_planning/models/program.py:24
+#: sql_constraint:program.program:0
+#, python-format
+msgid "Program name must be unique!"
+msgstr "مسمي البرنامج يجب ان يكون متفردا"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_operation_operation_program_ids
+#: model:ir.model.fields,field_description:almuntada_planning.field_strategic_strategic_program_ids
+#: model:ir.ui.view,arch_db:almuntada_planning.operation_view_form
+#: model:ir.ui.view,arch_db:almuntada_planning.strategic_view_form
+msgid "Programs"
+msgstr "البرامج"
+
+#. module: almuntada_planning
+#: model:ir.actions.act_window,name:almuntada_planning.action_requirement
+#: model:ir.model,name:almuntada_planning.model_requirement_requirement
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_requirement_id
+#: model:ir.ui.menu,name:almuntada_planning.requirement_menu
+msgid "Requirement"
+msgstr "المطلوبات"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_requirement_requirement_requirement_name
+msgid "Requirement Name"
+msgstr "المسمي المطلوب"
+
+#. module: almuntada_planning
+#: code:addons/almuntada_planning/models/requirement.py:16
+#: sql_constraint:requirement.requirement:0
+#, python-format
+msgid "Requirement name must be unique!"
+msgstr "المسمي المطلوب يجب ان يكون متفردا"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.requirement_view_form
+msgid "Requirements"
+msgstr "المطلوبات"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.task_view_filter
+msgid "Search Tasks"
+msgstr "البحث عن المهام"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_operation_operation_start_date
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_state
+#: model:ir.ui.view,arch_db:almuntada_planning.report_task
+msgid "State"
+msgstr "الحالة"
+
+#. module: almuntada_planning
+#: model:ir.actions.act_window,name:almuntada_planning.action_strategic
+#: model:ir.model,name:almuntada_planning.model_strategic_strategic
+#: model:ir.ui.view,arch_db:almuntada_planning.operation_view_form
+#: model:ir.ui.view,arch_db:almuntada_planning.strategic_view_form
+msgid "Strategic"
+msgstr "أستراتيجي"
+
+#. module: almuntada_planning
+#: model:ir.actions.act_window,name:almuntada_planning.action_indicator
+#: model:ir.model,name:almuntada_planning.model_indicator_indicator
+#: model:ir.model.fields,field_description:almuntada_planning.field_strategic_strategic_strategic_indicator
+msgid "Strategic Indicator"
+msgstr "المؤشر الاستراتجي"
+
+#. module: almuntada_planning
+#: model:ir.ui.menu,name:almuntada_planning.strategic_ind_config
+#: model:ir.ui.view,arch_db:almuntada_planning.indicator_view_form
+msgid "Strategic Indicators"
+msgstr "المؤشر الاستراتجي"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_strategic_strategic_strategic_name
+msgid "Strategic Name"
+msgstr "المسمي الاستراتجي"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_program_program_strategic_id
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_strategic_id
+#: model:ir.ui.menu,name:almuntada_planning.strategic_config
+msgid "Strategic Objective"
+msgstr "الهدف الاسترتيجي"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_operation_operation_strategic_id
+msgid "Strategic Opjective"
+msgstr "الهدف الاستراتجي"
+
+#. module: almuntada_planning
+#: code:addons/almuntada_planning/models/strategic.py:20
+#: sql_constraint:strategic.strategic:0
+#, python-format
+msgid "Strategic name must be unique!"
+msgstr "المسمي الاستراتيجي يجب ان يكون متفردا"
+
+#. module: almuntada_planning
+#: model:ir.model,name:almuntada_planning.model_task_task
+msgid "Task"
+msgstr "المهمة"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.task_task_view_form
+msgid "Task Details"
+msgstr "تفاصيل المهمة"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_followup_task_task_name
+msgid "Task Followup"
+msgstr "متابعة المهمة"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_task_task_task_name
+#: model:ir.ui.view,arch_db:almuntada_planning.report_task
+#: model:ir.ui.view,arch_db:almuntada_planning.task_view_filter
+msgid "Task Name"
+msgstr "اسم المهمة"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_followup_task_state
+msgid "Task State"
+msgstr "حالة المهمة"
+
+#. module: almuntada_planning
+#: model:ir.actions.report.xml,name:almuntada_planning.action_report_task
+#: model:ir.ui.view,arch_db:almuntada_planning.report_task
+msgid "Task Status Report"
+msgstr "تقرير حالة المهمة"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.task_task_view_form
+msgid "Task Title..."
+msgstr "عنوان المهمة"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,field_description:almuntada_planning.field_operation_operation_task_ids
+msgid "Task ids"
+msgstr "Task ids"
+
+#. module: almuntada_planning
+#: code:addons/almuntada_planning/models/followup_task.py:26
+#: code:addons/almuntada_planning/models/task.py:80
+#: sql_constraint:followup.task:0 sql_constraint:task.task:0
+#, python-format
+msgid "Task name must be unique!"
+msgstr "مسمي المهمة يجب ان يكون متفردا"
+
+#. module: almuntada_planning
+#: model:ir.actions.act_window,name:almuntada_planning.action_task
+#: model:ir.model.fields,field_description:almuntada_planning.field_program_program_task_ids
+#: model:ir.model.fields,field_description:almuntada_planning.field_strategic_strategic_task_ids
+#: model:ir.ui.menu,name:almuntada_planning.task_config
+#: model:ir.ui.view,arch_db:almuntada_planning.operation_view_form
+#: model:ir.ui.view,arch_db:almuntada_planning.program_view_form
+#: model:ir.ui.view,arch_db:almuntada_planning.strategic_view_form
+#: model:ir.ui.view,arch_db:almuntada_planning.task_task_view_form
+msgid "Tasks"
+msgstr "المهام"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.operation_view_tree
+msgid "The Operations"
+msgstr "العمليات"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.program_view_tree
+msgid "The Programs"
+msgstr "البرامج"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.task_view_gantt
+#: model:ir.ui.view,arch_db:almuntada_planning.task_view_tree
+msgid "The Task"
+msgstr "المهام"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.task_view_filter
+msgid "Today"
+msgstr "اليوم"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.task_task_view_form
+msgid "Unlock"
+msgstr "الغاء القفل"
+
+#. module: almuntada_planning
+#: selection:task.task,priority:0
+msgid "Urgent"
+msgstr "ذو اهمية"
+
+#. module: almuntada_planning
+#: model:ir.model.fields,help:almuntada_planning.field_program_program_company_currency_id
+msgid "Utility field to show amount currency"
+msgstr "Utility field to show amount currency"
+
+#. module: almuntada_planning
+#: selection:task.task,state:0
+msgid "Working"
+msgstr "قيد العمل"
+
+#. module: almuntada_planning
+#: model:ir.ui.view,arch_db:almuntada_planning.view_task_kanban
+msgid "oe_kanban_text_red"
+msgstr "oe_kanban_text_red"

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_order_tree_lot" model="ir.ui.view">
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <!-- position values: after|before|replace|attributes|inside -->
+            <xpath expr="//field[@name='payment_term_id']" position="attributes">
+                <!-- Add your fields or attributes here -->
+                <attribute name="required">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

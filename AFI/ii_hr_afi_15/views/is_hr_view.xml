@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="view_education_tree" model="ir.ui.view">
+		<field name="name">educational.level.tree</field>
+		<field name="model">educational.level</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+			</tree>
+		</field>
+	</record>
+	<record id="view_education_form1" model="ir.ui.view">
+		<field name="name">educational.level.form</field>
+		<field name="model">educational.level</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="name" string="Degree"/>
+					</group>
+					<notebook>
+						<page string="Sections">
+							<field name="edu_section_ids">
+								<tree editable="bottom">
+									<field name="name"/>
+								</tree>
+							</field>
+						</page>
+					</notebook>
+				</sheet>
+			</form>
+
+		</field>
+	</record>
+
+	<record id="action_education_form" model="ir.actions.act_window">
+		<field name="name">Education Degree</field>
+		<field name="res_model">educational.level</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<menuitem name="Degree" parent="hr.menu_human_resources_configuration" id="menu_education" action="action_education_form" groups="hr.group_hr_manager"/>
+
+	<!-- HR employee inherit -->
+	<record id="view_employee_form_inherit1" model="ir.ui.view">
+		<field name="name">hr.employee.form.inherit</field>
+		<field name="model">hr.employee</field>
+		<field name="inherit_id" ref="hr.view_employee_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//div[@name='button_box']" position="inside">
+				<button name="%(act_hr_employee_loan_request)d"
+						type="action"
+						class="oe_stat_button"
+						icon="fa-calendar"
+						groups="hr.group_hr_manager">
+					<field name="loan_count" widget="statinfo" string="Loans"/>
+				</button>
+			</xpath>
+
+			<xpath expr="//field[@name='user_id']" position="after">
+				<field name="hiring_date" groups="hr.group_hr_user"/>
+				<field name="quit_date" groups="hr.group_hr_user"/>
+			</xpath>
+			<xpath expr="//field[@name='name']" position="after">
+				<field name="code" groups="hr.group_hr_user"/>
+				<field name="signature" invisible="1" groups="hr.group_hr_user"/>
+			</xpath>
+			<xpath expr="//field[@name='marital']" position="after">
+				<field name="family_member" groups="hr.group_hr_user"/>
+			</xpath>
+			<xpath expr="//field[@name='coach_id']" position="after">
+				<field name="is_manager" groups="hr.group_hr_user"/>
+			</xpath>
+			<xpath expr="//page[@name='personal_information']" position="inside">
+				<group string="Education Level" name="edu_level">
+					<field name="graduation_year" groups="hr.group_hr_user"/>
+					<field name="edu_level_id" groups="hr.group_hr_user"/>
+					<field name="edu_section_id" groups="hr.group_hr_user"/>
+				</group>
+			</xpath>
+			<xpath expr="//group[@name='edu_level']" position="after">
+				<group string="Practical experience">
+					<div>
+						<field name="year_experience" string="Education Level" class="oe_inline"/> Years and
+						<field name="month_experience" string="Section" class="oe_inline"/> Month
+					</div>
+				</group>
+			</xpath>
+
+			<xpath expr="//group[@name='active_group']" position="after">
+				<group string="Leaves" name="leave">
+					<field name="annual_leave"/>
+					<field name="leave_balance"/>
+				</group>
+			</xpath>
+			<xpath expr="//field[@name='gender']" position="after">
+				<field name="mother_name"/>
+				<field name="blood" string="Blood"/>
+			</xpath>
+
+			<xpath expr="//group[@name='leave']" position="after">
+				<group string="National Military Service ">
+					<field name="national_service_from"/>
+					<field name="national_service_to"/>
+				</group>
+			</xpath>
+			<xpath expr="//field[@name='birthday']" position="after">
+				<field name="age"/>
+				<field name="age_in_years"/>
+			</xpath>
+		</field>
+	</record>
+	<!--<record id="view_employee_inherit_filter" model="ir.ui.view">-->
+	<!--<field name="name">hr.employee.search</field>-->
+	<!--<field name="model">hr.employee</field>-->
+	<!--<field name="inherit_id" ref="hr.view_employee_filter"/>-->
+	<!--<field name="arch" type="xml">-->
+	<!--<search string="Employees">-->
+	<!--<filter name="department_id" string="Department" domain="[]" context="{'group_by':'department_id'}"/>-->
+	<!--</search>-->
+	<!--</field>-->
+	<!--</record>-->
+	<!-- hr contract -->
+	<record id="view_hr_contract_leave" model="ir.ui.view">
+		<field name="name">hr.contract.form.inherited</field>
+		<field name="model">hr.contract</field>
+		<field name="inherit_id" ref ="hr_contract.hr_contract_view_form"/>
+		<field name="arch" type="xml">
+			<!--		  <xpath expr="//field[@name='wage']"  position="after">-->
+			<xpath expr="//notebook/page[@name='information']"  position="inside">
+				<group string="Advance">
+					<field name="transport_allowance" required="1"/>
+					<field name="taxable"/>
+					<field name="eligible_si"/>
+					<field name="grade"/>
+					<field name="grade_class"/>
+				</group>
+			</xpath>
+			<xpath expr='//notebook/page'  position="after">
+				<page string="Leave">
+					<group>
+						<field name="legal_leave"/>
+					</group>
+				</page>
+			</xpath>
+		</field>
+	</record>
+	<!--HR Attenadnce-->
+	<record id="view_lost_hour_inherit" model="ir.ui.view">
+		<field name="name">hr.attendance.form.inherit</field>
+		<field name="model">hr.attendance</field>
+		<field name="inherit_id" ref="hr_attendance.hr_attendance_view_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='check_out']" position="after">
+				<field name="total_late"/>
+				<field name="lost_hours" invisible="1"/>
+				<field name="reason"/>
+			</xpath>
+		</field>
+	</record>
+	<!--HR Department-->
+	<record id="view_hr_department_inherit" model="ir.ui.view">
+		<field name="name">hr.department.analytic.form.inherit</field>
+		<field name="model">hr.department</field>
+		<field name="inherit_id" ref="hr.view_department_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//sheet" position="inside">
+				<group string="Analytic Account">
+					<field name="analytic_debit_account_id"/>
+				</group>
+			</xpath>
+		</field>
+	</record>
+
+	<!--<record id="view_hr_holiday_inherit" model="ir.ui.view">-->
+	<!--<field name="name">hr.holidays.form</field>-->
+	<!--<field name="model">hr.holidays</field>-->
+	<!--<field name="inherit_id" ref ="hr_holidays.edit_holiday_new"/>-->
+	<!--<field name="arch" type="xml">-->
+	<!--<xpath expr='//button[@name="action_confirm"]' position="attributes">-->
+	<!--<attribute name ="groups">ii_hr_afi_15.group_hr_department_manager</attribute>-->
+	<!--</xpath>-->
+	<!--<xpath expr='//button[@name="action_approve"]' position="replace">-->
+	<!--<button string="Approve" name="action_approve" states="confirm" type="object" groups="ii_hr_afi_15.group_hr_department_manager" class="oe_highlight"/>-->
+	<!--</xpath>-->
+	<!--<xpath expr='//button[@name="action_refuse"]' position="attributes">-->
+	<!--<attribute name ="groups">hr.group_hr_manager,ii_hr_afi_15.group_hr_department_manager</attribute>-->
+	<!--</xpath>-->
+	<!--<xpath expr='//button[@name="action_draft"]' position="attributes">-->
+	<!--<attribute name ="groups">hr.group_hr_manager</attribute>-->
+	<!--<attribute name ="state">refuse</attribute>-->
+	<!--</xpath>-->
+	<!--</field>-->
+	<!--</record>-->
+</odoo>

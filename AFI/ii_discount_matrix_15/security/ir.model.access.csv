@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_discount_matrix_line,discount.matrix.line,model_discount_matrix_line,sales_team.group_sale_manager,1,1,1,1
+access_sale_discount_matrix,discount.matrix,model_discount_matrix,sales_team.group_sale_manager,1,1,1,1
+access_sale_discount_matrix_line_salesman,discount.matrix.line,model_discount_matrix_line,sales_team.group_sale_salesman,1,1,1,1
+access_sale_discount_matrix_salesman,discount.matrix,model_discount_matrix,sales_team.group_sale_salesman,1,1,1,1

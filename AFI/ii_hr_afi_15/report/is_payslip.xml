@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="salary__report">
+            <t t-call="web.html_container">
+                <div class="header">
+                    <div class="row">
+                        <center>
+                            <div class="text-center">
+                                <h6>
+                                    <span>MTWA International Investment Co.LTD</span>
+                                    <span>MTWA International Investment Co.LTD</span>
+                                </h6>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+                <div class="page">
+                    <div class="oe_structure">
+                        <div class="row row-centered">
+                            <div class="col-md-12 col-centered">
+                                <group string="Payslip Report">
+                                    <h4 class="text-center">
+                                        <strong>
+                                            Salaries
+                                        </strong>
+                                    </h4>
+                                    <t t-set="counter" t-value="0"/>
+                                    <t t-set="sal" t-value="0"/>
+                                    <t t-set="costliving" t-value="0"/>
+                                    <t t-set="housing" t-value="0"/>
+                                    <t t-set="social_8" t-value="0"/>
+                                    <t t-set="social_17" t-value="0"/>
+                                    <t t-set="loan" t-value="0"/>
+                                    <t t-set="penalty" t-value="0"/>
+                                    <t t-set="pit" t-value="0"/>
+                                    <t t-set="stamp" t-value="0"/>
+                                    <t t-set="deduction" t-value="0"/>
+                                    <t t-set="grant" t-value="0"/>
+                                    <t t-set="net" t-value="0"/>
+                                    <table style="width: 100%;" dir="rtl">
+                                        <tr>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    الرقم
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    الشهر
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    اﻷسم
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    الوظيفة
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    مركز التكلفة
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    المرتب
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    أساسي
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    غلاء المعيشة
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    بدل سكن
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    تأمين 8%
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    تأمين 17%
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    سلفيات
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    جزاءات
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    ض.د.ش
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    دمغة
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    الخصومات
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    المنحة
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    صافي المرتب
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    رقم الحساب
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black; background-color: rgba(128,128,128,.2);" class="text-center">
+                                                <strong>
+                                                    التوقيع
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                        <t t-foreach="docs" t-as="o">
+                                            <tr>
+                                                <td style="border:1px solid black" class="text-center">
+                                                    <t t-esc="counter+1"/>
+                                                    <t t-set="counter" t-value="counter+1"/>
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+                                                    <span t-field="o.date_from" t-field-options='{"format":"MMMM"}'/>
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+                                                    <span t-field="o.employee_id"/>
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+                                                    <span t-field="o.employee_id.job_id"/>
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+                                                    <span t-field="o.employee_id.cost_center_id"/>
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+                                                    <span t-field="o.contract_id.wage"/>
+                                                    <t t-set="sal" t-value="sal+o.contract_id.wage"/>
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+                                                    <span t-field="o.contract_id.primary"/>
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+                                                    <span t-field="o.contract_id.cost_living"/>
+                                                    <t t-set="costliving" t-value="costliving+o.contract_id.cost_living"/>
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+                                                    <span t-field="o.contract_id.housing"/>
+                                                    <t t-set="housing" t-value="housing+o.contract_id.housing"/>
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+                                                    <t t-foreach="o.line_ids" t-as="line">
+                                                        <t t-if="'SI8' in line.code">
+                                                            <span t-field="line.amount"/>
+                                                            <t t-set="social_8" t-value="social_8+line.amount"/>
+                                                        </t>
+                                                    </t>
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+                                                    <t t-foreach="o.line_ids" t-as="line">
+                                                        <t t-if="'SI17' in line.code">
+                                                            <span t-field="line.amount"/>
+                                                            <t t-set="social_17" t-value="social_17+line.amount"/>
+                                                        </t>
+                                                    </t>
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+                                                    <t t-foreach="o.line_ids" t-as="line">
+                                                        <t t-if="'loan' in line.code">
+                                                            <span t-field="line.amount"/>
+                                                            <t t-set="loan" t-value="loan+line.amount"/>
+                                                        </t>
+                                                    </t>
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+                                                    <t t-foreach="o.line_ids" t-as="line">
+                                                        <t t-if="'PEN' in line.code">
+                                                            <span t-field="line.amount"/>
+                                                            <t t-set="penalty" t-value="penalty+line.amount"/>
+                                                        </t>
+                                                    </t>
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+                                                    <t t-foreach="o.line_ids" t-as="line">
+                                                        <t t-if="'PIT' in line.code">
+                                                            <span t-field="line.amount"/>
+                                                            <t t-set="pit" t-value="pit+line.amount"/>
+                                                        </t>
+                                                    </t>
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+                                                    <t t-foreach="o.line_ids" t-as="line">
+                                                        <t t-if="'STMP' in line.code">
+                                                            <span t-field="line.amount"/>
+                                                            <t t-set="stamp" t-value="stamp+line.amount"/>
+                                                        </t>
+                                                    </t>
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+                                                    <t t-set="ded" t-value="0"/>
+                                                    <t t-foreach="o.line_ids" t-as="line">
+                                                        <t t-if="line.category_id.name == 'Deduction'">
+                                                            <t t-set="ded" t-value="ded+line.amount"/>
+                                                        </t>
+                                                    </t>
+                                                    <t t-set="deduction" t-value="deduction+ded"/>
+                                                    <t t-esc="ded"/>
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+                                                    <t t-foreach="o.line_ids" t-as="line">
+                                                        <t t-if="'Grant' in line.name">
+                                                            <span t-field="line.amount"/>
+                                                            <t t-set="grant" t-value="grant+line.amount"/>
+                                                        </t>
+                                                    </t>
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+                                                    <t t-foreach="o.line_ids" t-as="line">
+                                                        <t t-if="line.name == 'Net'">
+                                                            <span t-field="line.amount"/>
+                                                            <t t-set="net" t-value="net+line.amount"/>
+                                                        </t>
+                                                    </t>
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+<!--                                                    <span t-field="o.bank_acct_num"/>-->
+                                                </td>
+                                                <td style="border:1px solid black" class="text-center">
+
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <tr>
+                                            <td style="border:1px solid black" class="text-center">
+                                            </td>
+                                            <td style="border:1px solid black" class="text-center" colspan="4">
+                                                اﻹجمالي
+                                            </td>
+                                            <td style="border:1px solid black" class="text-center">
+                                                <t t-esc="sal"/>
+                                            </td>
+                                            <td style="border:1px solid black" class="text-center">
+                                                ###
+                                            </td>
+                                            <td style="border:1px solid black" class="text-center">
+                                                <t t-esc="costliving"/>
+                                            </td>
+                                            <td style="border:1px solid black" class="text-center">
+                                                <t t-esc="housing"/>
+                                            </td>
+                                            <td style="border:1px solid black" class="text-center">
+                                                <t t-esc="social_8"/>
+                                            </td>
+                                            <td style="border:1px solid black" class="text-center">
+                                                <t t-esc="social_17"/>
+                                            </td>
+                                            <td style="border:1px solid black" class="text-center">
+                                                <t t-esc="loan"/>
+                                            </td>
+                                            <td style="border:1px solid black" class="text-center">
+                                                <t t-esc="penalty"/>
+                                            </td>
+                                            <td style="border:1px solid black" class="text-center">
+                                                <t t-esc="pit"/>
+                                            </td>
+                                            <td style="border:1px solid black" class="text-center">
+                                                <t t-esc="stamp"/>
+                                            </td>
+                                            <td style="border:1px solid black" class="text-center">
+                                                <t t-esc="deduction"/>
+                                            </td>
+                                            <td style="border:1px solid black" class="text-center">
+                                                <t t-esc="grant"/>
+                                            </td>
+                                            <td style="border:1px solid black" class="text-center">
+                                                <t t-esc="net"/>
+                                            </td>
+                                            <td style="border:1px solid black" class="text-center">
+
+                                            </td>
+                                            <td style="border:1px solid black" class="text-center">
+
+                                            </td>
+
+                                        </tr>
+                                    </table>
+                                </group>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</openerp>

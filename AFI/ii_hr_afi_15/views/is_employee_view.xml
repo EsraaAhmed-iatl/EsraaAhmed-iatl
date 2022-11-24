@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!-- Action to show shorted list  -->
+
+<!--        <record model="ir.actions.act_window" id="action_hr_job_short_applications">-->
+<!--        <field name="name">Short List Applications</field>-->
+<!--        <field name="res_model">hr.applicant</field>-->
+<!--        <field name="view_mode">kanban,tree,form,graph,calendar,pivot</field>-->
+<!--        <field name="search_view_id" ref="hr_recruitment.hr_applicant_view_search_bis"/>-->
+<!--        <field name="context">{'search_default_job_id': [active_id], 'default_job_id': active_id}</field>-->
+<!--            <field name="domain">[('is_short_list','=',True)]</field>-->
+<!--        <field name="help" type="html">-->
+<!--              <p class="o_view_nocontent_empty_folder">-->
+<!--                No Short list applications yet-->
+<!--              </p><p>-->
+<!--                Odoo helps you track Short List applicants in the recruitment-->
+<!--                process and follow up all operations: meetings, interviews, etc.-->
+<!--              </p><p>-->
+<!--                Short List Applicants and their attached CV are created automatically when an email is sent.-->
+<!--                If you install the document management modules, all resumes are indexed automatically,-->
+<!--                so that you can easily search through their content.-->
+<!--              </p>-->
+<!--         </field>-->
+<!--    </record>-->
+ <!-- Adding short list filed in stage view  -->
+<!--        <record id="view_hr_stage_form_inherited" model="ir.ui.view">-->
+<!--            <field name="name">employee stage form inherited</field>-->
+<!--            <field name="model">hr.recruitment.stage</field>-->
+<!--            <field name="inherit_id" ref="hr_recruitment.hr_recruitment_stage_form"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//field[@name='fold']" position="after">-->
+<!--                      <field name="is_short"/>-->
+<!--                </xpath>-->
+
+<!--            </field>-->
+<!--        </record>-->
+        <!-- Adding Employee Account in Employee Profile -->
+        <record id="view_hr_form_inherited" model="ir.ui.view">
+            <field name="name">employee form inherited</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page name="public" string="Account Information">
+                        <div id="o_work_employee_container">
+                            <div id="o_work_employee_main">
+                                <group string="Account Information">
+                                    <field name="employee_account"/>
+                                </group>
+
+                            </div>
+                        </div>
+                    </page>
+                </xpath>
+                <xpath expr="//field[@name='phone']" position="after">
+                    <field name="bank_acc"/>
+                </xpath>
+            </field>
+        </record>
+
+
+
+<!--        &lt;!&ndash; Adding Recruitment workflow in job &ndash;&gt;-->
+<!--        <record id="view_recruitment_job_form_inherited" model="ir.ui.view">-->
+<!--        <field name="name">hr.job.form.mtwa</field>-->
+<!--        <field name="model">hr.job</field>-->
+<!--        <field name="inherit_id" ref="hr.view_hr_job_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//header" position="inside">-->
+<!--                <button string="Job Advertising" name="set_advertised" type="object"   attrs="{'invisible':[('state','in',('advertised','applicant','open'))]}"/>-->
+<!--                <button string="Application" name="set_applicant"  type="object"   attrs="{'invisible':[('state','in',('applicant'))]}"/>-->
+<!--                <button string="Refuse" name="set_refuse" type="object" attrs="{'invisible':[('state','in',('open','applicant','advertised'))]}"/>-->
+
+
+<!--            </xpath>-->
+<!--&lt;!&ndash;             <xpath expr="//button[@name='set_open']" position="replace">&ndash;&gt;-->
+<!--&lt;!&ndash;                     </xpath>&ndash;&gt;-->
+
+<!--            <xpath expr="//field[@name='state']" position="replace">-->
+<!--                <field name="state" widget="statusbar" />-->
+<!--            </xpath>-->
+<!--            &lt;!&ndash; adding shortlist count to job view &ndash;&gt;-->
+
+<!--            <xpath expr="//field[@name='description']" position="after">-->
+<!--                <field name="short_list_count" invisible="1"/>-->
+<!--            </xpath>-->
+
+<!--             <xpath expr="//field[@name='state']" position="replace">-->
+<!--                <field name="state" widget="statusbar" />-->
+<!--            </xpath>-->
+<!--            &lt;!&ndash; Adding Smart button in job to show short list Applicant &ndash;&gt;-->
+<!--            <xpath expr="//div[@name='button_box']" position="inside">-->
+<!--               <button class="oe_stat_button"-->
+<!--                    icon="fa-pencil"-->
+<!--                    name="%(action_hr_job_short_applications)d"-->
+<!--                    context="{'default_user_id': user_id}"-->
+<!--                    type="action">-->
+<!--                    <field  name="short_list_count" widget="statinfo" string="Short List" />-->
+<!--                </button>-->
+
+<!--            </xpath>-->
+<!--        </field>-->
+<!--        </record>-->
+
+
+<!--        <record id="hr_applicant_view_form_inherited" model="ir.ui.view">-->
+<!--        <field name="name">hr.applicant.job.form.mtwa</field>-->
+<!--        <field name="model">hr.applicant</field>-->
+<!--        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--             <xpath expr="//field[@name='email_from']" position="after">-->
+<!--                <field name="is_short_list" invisible="1"-->
+<!--                />-->
+<!--            </xpath>-->
+
+<!--        </field>-->
+<!--        </record>-->
+
+<!--         <record id="hr_applicant_view_kanban_inherited" model="ir.ui.view">-->
+<!--        <field name="name">hr.applicant.job.kanban.mtwa</field>-->
+<!--        <field name="model">hr.applicant</field>-->
+<!--        <field name="inherit_id" ref="hr_recruitment.hr_kanban_view_applicant"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--             <xpath expr="//field[@name='job_id']" position="after">-->
+<!--                <field name="is_short_list" invisible="1" />-->
+<!--            </xpath>-->
+
+<!--        </field>-->
+<!--        </record>-->
+    </data>
+</odoo>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Res Partner Views -->
+        <record id="inherited_view_res_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="function" position="before">
+                    <field name="customer_rank" invisible="1"/>
+                    <field name="customer_code" attrs="{'required':[('customer_rank','=',1)]}"/>
+                </field>
+            </field>
+        </record>
+
+
+
+
+
+        <record id="view_product_product_inherit_tree" model="ir.ui.view">
+            <field name="name">view.product.product.inherit.tree</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='standard_price']" position="before">
+                    <field name="loc_case"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+        <record id="view_product_template_inherit_tree" model="ir.ui.view">
+            <field name="name">view.product.template.inherit.tree</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='standard_price']" position="after">
+                    <!-- Add your fields or attributes here -->
+                    <field name="loc_case"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_res_partner_form_search" model="ir.ui.view">
+            <field name="name">view.inherit.res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//search" position="inside">
+                   <field name="customer_code" filter_domain="[('customer_code', 'ilike', self)]"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

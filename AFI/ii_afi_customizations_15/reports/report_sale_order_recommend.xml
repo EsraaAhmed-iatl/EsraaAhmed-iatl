@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_saleorder_recommend">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div class="oe_structure"/>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <b>Date :</b><br></br>
+                                    <b>Bank Of Khartoum</b><br></br>
+                                    <b>Kharoum, Sudan</b><br></br><br></br>
+                                </div>
+                                <div class="col-xs-12">
+                                    <b>Sub: Recommendation Letter</b><br></br>
+                                    <div>We Kindly recommend and guarantee the under mention customer for Finance of Tractor and / Agricultural Equipment, in accordance of our Dealer's Risk Based Agreement with Bank of Khartoum dated.....</div>
+                                </div>
+                            </div>
+                            <br></br>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Description</th>
+                                        <th>Serial No.</th>
+                                        <th class="text-right">Quantity</th>
+<!--                                        <th groups="sale.group_discount_per_so_line">Discount Type</th>-->
+                                        <th class="text-right">Unit Price</th>
+<!--                                        <th groups="sale.group_discount_per_so_line">Discount Amount</th>-->
+<!--                                        <th groups="sale.group_discount_per_so_line">Disc.(%)</th>-->
+                                        <th class="text-right">Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="sale_tbody">
+                                    <tr t-foreach="o.order_line" t-as="l">
+                                        <td>
+                                            <span t-field="l.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="l.lot_id"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="l.product_uom_qty"/>
+                                            <span groups="product.group_uom" t-field="l.product_uom"/>
+                                        </td>
+<!--                                        <td groups="sale.group_discount_per_so_line">-->
+<!--                                            <span t-field="l.discount_type"/>-->
+<!--                                        </td>-->
+                                        <td class="text-right">
+                                            <span t-field="l.price_unit"/>
+                                        </td>
+<!--                                        <td groups="sale.group_discount_per_so_line">-->
+<!--                                            <span t-field="l.discount_amount_line"/>-->
+<!--                                        </td>-->
+<!--                                        <td groups="sale.group_discount_per_so_line">-->
+<!--                                            <span t-field="l.discount"/>-->
+<!--                                        </td>-->
+                                        <td class="text-right">
+                                            <span t-field="l.price_subtotal"
+                                                  t-field-options='{"widget": "monetary", "display_currency": "o.pricelist_id.currency_id"}'/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="row">
+                                <div class="col-xs-4 pull-right">
+                                    <table class="table table-condensed">
+                                        <tr class="border-black">
+                                            <td>
+                                                <strong>Total Without Taxes</strong>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-field="o.amount_untaxed"
+                                                      t-field-options='{"widget": "monetary", "display_currency": "o.pricelist_id.currency_id"}'/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Taxes</td>
+                                            <td class="text-right">
+                                                <span t-field="o.amount_tax"
+                                                      t-field-options='{"widget": "monetary", "display_currency": "o.pricelist_id.currency_id"}'/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Discount</td>
+                                            <td class="text-right">
+                                                <span t-field="o.ks_amount_discount"
+                                                      t-field-options='{"widget": "monetary", "display_currency": "o.pricelist_id.currency_id"}'/>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-black">
+                                            <h4>
+                                                <td>
+                                                    <h4>
+                                                        <strong>Total</strong>
+                                                    </h4>
+                                                </td>
+                                                <td class="text-right">
+                                                    <h4>
+                                                        <span t-field="o.amount_total"
+                                                              t-field-options='{"widget": "monetary", "display_currency": "o.pricelist_id.currency_id"}'/>
+                                                    </h4>
+                                                </td>
+                                            </h4>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <p>Customer : <span t-field="o.partner_id"></span></p><br></br>
+                                <b>AFI For Development And Service Co. LTD</b><br></br>
+                                <b>Authorized :</b><br></br>
+                                <b>Name :</b><br></br>
+                                <b>Signature :</b><br></br>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_saleorder">
+            <t t-call="web.html_container">
+                <t t-foreach="doc_ids" t-as="doc_id">
+                    <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'sale.report_saleorder_document')"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<form string="Trip">
+				<header>
+						<button string="Approve" name="trip_first_approve" groups="ii_hr_afi_15.group_department_manager" states="draft" type="object" class="oe_highlight"/>
+                        <button string="Confirm" name="trip_second_approve" groups="hr.group_hr_manager" states="approve" type="object" class="oe_inline"/>
+                        <button string="Days Approve" name="trip_first_confirm" groups="ii_hr_afi_15.group_department_manager" states="confirm" type="object" class="oe_inline"/>
+                        <button string="Days Confirm" name="trip_second_confirm" groups="hr.group_hr_manager" states="approve2" type="object" class="oe_inline"/>
+                        <button string="Generate Journal Entries" name="trip_account_done" groups="account.group_account_manager" states="confirm2" type="object" class="oe_inline"/>
+                        <button string="Refuse" name="trip_refuse" groups="base.group_hr_manager" states="approve,confirm" type="object" class="oe_inline"/>
+						<button string="Reset To Draft" name="trip_reset" groups="base.group_hr_manager" states="refuse" type="object" class="oe_highlight"/>
+						<field name="state" widget="statusbar" statusbar_visible="draft,approve,confirm,approve2,confirm2,done"/>
+					</header>
+					<sheet>
+					<div colspan="4">
+                    <group>
+                        <field name="employee_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        <field name="department_id"/>
+                        <field name="job_id"/>
+                        <field name="emp_salary" class="oe_inline" invisible="1"/>
+					</group>
+					</div>
+                    <group string="Trip Information" colspan="4">
+					<field name="trip_dist"/>
+					<field name="name"/>
+					<field name="maintenance"/>
+					<field name="trip_start_date"/>
+					<field name="trip_end_date" attrs="{'invisible':[('state','in',['confirm', 'approve'])],'readonly':[('state','=','done')]}"/>
+					<field name="no_of_days" attrs="{'invisible':[('state','in',['confirm', 'approve'])],'readonly':[('state','=','done')]}"/>
+					<field name="trip_amount" attrs="{'invisible':[('state','!=','done')]}"/>
+                    </group>
+
+					<group string="Accounting Information">
+						<field name="move_id" attrs="{'invisible':[('state','!=','done')],'readonly':[('state','=','done')]}"/>
+						<field name="journal_id" attrs="{'invisible':[('state','!=','confirm2')],'readonly':[('state','=','done')]}"/>
+                        <field name="employee_account" attrs="{'invisible':[('state','!=','confirm2')],'readonly':[('state','=','done')]}"/>
+                        <field name="trip_account" attrs="{'invisible':[('state','!=','confirm2')],'readonly':[('state','=','done')]}"/>
+					</group>
+					<group>
+					<field name="note"/>
+					</group>
+
+					</sheet>
+				</form>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <!--*****************************Inherit********************-->
+    <!-- Inherit Form View to Modify it -->
+    <record id="view_inherit_so_form" model="ir.ui.view">
+        <field name="name">view.inherit.so.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <!-- position values: after|before|replace|attributes|inside -->
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <!-- Add your fields or attributes here -->
+                <field name="customer_code"/>
+
+            </xpath>
+
+
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <!-- Add your fields or attributes here -->
+                <field name="position_id" invisible="1"/>
+                <field name="is_check" invisible="1"/>
+                <field name="is_delivery_approve" invisible="1"/>
+                <field name="is_immediate" invisible="1"/>
+            </xpath>
+
+            <!-- position: after|before|replace|attributes|inside -->
+            <xpath expr="//button[@name='action_confirm']" position="after">
+                <!-- Add your fields or attributes here -->
+                <button name="action_delivery_approve"
+                        class="oe_highlight"
+                        type="object"
+                        attrs="{'invisible': ['|','|',
+                        ('state', '!=', 'approve_sale'),
+                        ('is_immediate', '=', True),
+                        ('is_check', '!=', True),
+                        ]}"
+                        string="Delivery Approve"
+                />
+
+                <button name="reset_to_draft"
+                        class="oe_highlight"
+                        type="object"
+                        attrs="{'invisible': [
+                        ('state', '!=', 'approve_sale'),
+                        ]}"
+                        string="Reset To Draft"
+                />
+
+
+            </xpath>
+
+            <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
+
+                <attribute name="attrs">{'invisible': ['|','&amp;',('state', 'not in', ['approve_sale'])
+                    ,('is_immediate', '!=', True),
+                    ('state', 'in', ['sale', 'draft'])
+
+                    ]}
+                </attribute>
+            </xpath>
+
+            <!-- position values: after|before|replace|attributes|inside -->
+
+
+        </field>
+    </record>
+
+    <record id="view_inherit_picking_form" model="ir.ui.view">
+        <field name="name">view.inherit.stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <!-- position values: after|before|replace|attributes|inside -->
+            <xpath expr="//field[@name='origin']" position="after">
+                <!-- Add your fields or attributes here -->
+                <field name="invoice_state"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_inherit_picking_tree" model="ir.ui.view">
+        <field name="name">view.inherit.stock.picking.tree</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="arch" type="xml">
+
+            <!-- position values: after|before|replace|attributes|inside -->
+            <xpath expr="//field[@name='state']" position="after">
+                <!-- Add your fields or attributes here -->
+                <field name="invoice_state"/>
+
+            </xpath>
+        </field>
+      </record>
+    <!--*****************************Inherit********************-->
+
+
+    <record id="view_so_config_approve_form" model="ir.ui.view">
+        <field name="name">view.so.config.approve.form</field>
+        <field name="model">so.config.approve</field>
+        <field name="arch" type="xml">
+            <tree string="Config Approve"
+                  editable="bottom"
+                  create="1" edit="1" import="0">
+                <field name="job_position_id"/>
+                <field name="limit"/>
+                <field name="is_check"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_so_config_approve_view" model="ir.actions.act_window">
+        <field name="name">Sale Order Config Approve</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">so.config.approve</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+
+
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_so_config_approve_view"
+              name="Config Approve"
+              parent="sale.menu_sale_config"
+              action="action_so_config_approve_view"/>
+
+
+</odoo>

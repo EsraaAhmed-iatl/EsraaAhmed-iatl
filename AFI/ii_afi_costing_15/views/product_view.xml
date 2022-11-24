@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="product_category_view_form" model="ir.ui.view">
+            <field name="name">product.category.view.form.inherit</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/>
+            <field name="arch" type="xml">
+                <field name="parent_id" position="after">
+                    <field name="compute_cost" attrs="{'invisible':[('property_cost_method','!=','standard')]}"/>
+                    <label for="sl_markup" />
+                    <div>
+                        <field name="sl_markup" />
+                        <button string="Update Price" class="btn btn-link pt-0" type="object" name="update_price" />
+                    </div>
+                </field>
+            </field>
+        </record>
+        <record id="product_template_view_form" model="ir.ui.view">
+            <field name="name">product.template.view.form.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='group_standard_price']" position="inside">
+                    <label for="cp_euro" class="mt-1" attrs="{'invisible':[('compute_cost','!=',True)]}"/>
+                    <div name="supplier_cost">
+                        <field name="compute_cost" invisible="1"/>
+                        <field name="cp_euro" class="oe_inline" widget="monetary" attrs="{'invisible':[('compute_cost','!=',True)],'required':[('compute_cost','=',True)]}"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

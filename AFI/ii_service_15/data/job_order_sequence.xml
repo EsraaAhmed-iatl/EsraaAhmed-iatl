@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- check job_no Sequence -->
+        <record id="seq_job_no" model="ir.sequence">
+            <field name="name">Job No.</field>
+            <field name="code">workshop.job.no</field>
+            <field name="prefix">JOB/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+            <field name="implementation">no_gap</field>
+        </record>
+    </data>
+</odoo>

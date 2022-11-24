@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <template id="order_return_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <center>
+                                <h2>Order Return Form</h2>
+                            </center>
+                            <div class="row">
+                                <div class="col-6 pull-left">
+                                    <table style="height: 100px; width: 325px; border: none;background-color:none;">
+                                        <tr style="border:none;">
+                                            <td class="text-left" style="border:none;background-color:transparent;">
+                                                <div id="total">
+                                                    <strong style="margin-left:10px;">Date:</strong>
+                                                </div>
+                                            </td>
+                                            <td class="text-left" style="border:none;background-color:transparent;">
+                                                <span style="color:black;" t-field="doc.return_date"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="border:none;">
+                                            <td class="text-left" style="border:none;background-color:transparent;">
+                                                <div id="total">
+                                                    <strong style="margin-left:10px;">Order Number:</strong>
+                                                </div>
+                                            </td>
+                                            <td class="text-left" style="border:none;background-color:transparent;">
+                                                <span style="color:black;" t-field="doc.name"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <br/>
+
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th class="text-left">Product Name</th>
+                                        <th class="text-left">Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="doc.return_line" t-as="line">
+                                        <td class="text-left">
+                                            <span t-esc="line.product_id.name"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-esc="line.qty_return"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br/>
+                            <br/>
+                            <div class="text-left">
+                                <strong>Return Reason:</strong>
+                                <br/>
+                                <span t-field="doc.reason_id"/>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+
+    </data>
+</odoo>
